@@ -1,0 +1,1537 @@
+<!doctype html>
+<html lang="en" data-size="m">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Living Well with AI</title>
+<meta name="description" content="A plain-language guide to using AI safely, wisely and with curiosity, made for the Givens Aldersgate community in Charlotte, NC.">
+<script>window.GUIDE_MODE = "web";</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:ital,wght@0,400;0,600;0,700;1,400&family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Atkinson+Hyperlegible+Mono:wght@400;600&display=swap">
+<style>
+/* Layout concept: a calm, single-column field guide. Each chapter is a "growth ring" —
+   big readable type, one idea per block, deep pine bands for the moments that matter. */
+:root{
+  --paper:#F2F5EF;      /* green-tinted page, not cream */
+  --surface:#FFFFFF;
+  --ink:#13261F;
+  --ink-soft:#4B5F57;
+  --line:#D3DDD6;
+  --pine:#1E4C40;       /* primary: links, buttons */
+  --pine-ink:#FFFFFF;   /* text on pine buttons */
+  --band:#173A31;       /* dark chapter bands */
+  --band-ink:#EEF3EC;
+  --band-soft:#B9CCC3;
+  --marigold:#E7A93A;   /* the one warm accent: highlights, focus */
+  --sky:#D6E8EF;        /* sustainability tint */
+  --rose:#F6DCD3;       /* warning tint */
+  --rose-ink:#7A2E17;
+  --ok:#D9EBD9;
+  --ok-ink:#1E5A2E;
+  --shadow:0 1px 0 rgba(19,38,31,.04), 0 10px 30px -18px rgba(19,38,31,.35);
+
+  --f-display:"Bricolage Grotesque", "Avenir Next", "Segoe UI", system-ui, sans-serif;
+  --f-body:"Atkinson Hyperlegible Next", "Atkinson Hyperlegible", "Verdana", "Segoe UI", system-ui, sans-serif;
+  --f-mono:"Atkinson Hyperlegible Mono", "SF Mono", "Menlo", "Consolas", monospace;
+
+  --step--1:.9rem; --step-0:1.125rem; --step-1:1.35rem; --step-2:1.75rem; --step-3:2.4rem; --step-4:clamp(2.6rem, 6.2vw, 4.6rem);
+  --radius:14px;
+  --measure:64ch;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#0E1916; --surface:#15231F; --ink:#E7EFEA; --ink-soft:#A8BAB2; --line:#293B35;
+    --pine:#86C9B5; --pine-ink:#0E1916; --band:#0A1310; --band-ink:#E7EFEA; --band-soft:#9FB4AA;
+    --marigold:#F1B851; --sky:#17303A; --rose:#3A2019; --rose-ink:#F4B9A6; --ok:#173323; --ok-ink:#A8DDB4;
+    --shadow:0 10px 30px -18px rgba(0,0,0,.7);
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#0E1916; --surface:#15231F; --ink:#E7EFEA; --ink-soft:#A8BAB2; --line:#293B35;
+  --pine:#86C9B5; --pine-ink:#0E1916; --band:#0A1310; --band-ink:#E7EFEA; --band-soft:#9FB4AA;
+  --marigold:#F1B851; --sky:#17303A; --rose:#3A2019; --rose-ink:#F4B9A6; --ok:#173323; --ok-ink:#A8DDB4;
+  --shadow:0 10px 30px -18px rgba(0,0,0,.7);
+  color-scheme:dark;
+}
+/* Extra-high contrast for low vision */
+:root[data-contrast="high"]{
+  --paper:#FFFFFF; --surface:#FFFFFF; --ink:#000000; --ink-soft:#1A1A1A; --line:#000000;
+  --pine:#003B2E; --pine-ink:#FFFFFF; --band:#000000; --band-ink:#FFFFFF; --band-soft:#FFFFFF;
+  --sky:#FFFFFF; --rose:#FFFFFF; --rose-ink:#7A0000; --ok:#FFFFFF; --ok-ink:#003B00; color-scheme:light;
+}
+:root[data-contrast="high"][data-theme="dark"]{
+  --paper:#000000; --surface:#000000; --ink:#FFFFFF; --ink-soft:#F0F0F0; --line:#FFFFFF;
+  --pine:#9FF0D8; --pine-ink:#000000; --band:#000000; --band-ink:#FFFFFF; --band-soft:#FFFFFF;
+  --sky:#000000; --rose:#000000; --rose-ink:#FFB4A0; --ok:#000000; --ok-ink:#A8FFB8; color-scheme:dark;
+}
+html[data-size="s"]{font-size:100%}
+html[data-size="m"]{font-size:112.5%}
+html[data-size="l"]{font-size:131.25%}
+
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth; scroll-padding-top:6.5rem; padding-block:env(safe-area-inset-top,0px) env(safe-area-inset-bottom,0px)}
+body{margin:0; background:var(--paper); color:var(--ink); font-family:var(--f-body); font-size:var(--step-0); line-height:1.6; -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility}
+img{max-width:100%}
+[hidden]{display:none!important}
+h1,h2,h3,h4{font-family:var(--f-display); line-height:1.1; text-wrap:balance; margin:0; letter-spacing:-.015em}
+p{margin:0; max-width:var(--measure)}
+a{color:var(--pine); text-underline-offset:.2em; text-decoration-thickness:.08em}
+:focus-visible{outline:3px solid var(--marigold); outline-offset:3px; border-radius:6px}
+@media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto} *{animation:none!important; transition:none!important} }
+
+.wrap{max-width:76rem; margin:0 auto; padding-left:max(clamp(16px,4vw,48px), env(safe-area-inset-left,0px)); padding-right:max(clamp(16px,4vw,48px), env(safe-area-inset-right,0px))}
+.eyebrow{font-family:var(--f-mono); font-size:var(--step--1); letter-spacing:.08em; text-transform:uppercase; color:var(--ink-soft)}
+.lede{font-size:var(--step-1); line-height:1.5; color:var(--ink-soft)}
+.skip{position:absolute; left:-999px; top:0}
+.skip:focus{left:16px; top:16px; z-index:100; background:var(--surface); padding:.6rem 1rem; border-radius:8px}
+
+/* ---------- Top bar ---------- */
+body::before{content:""; position:fixed; inset:0 0 auto; height:env(safe-area-inset-top,0px); z-index:60; background:var(--paper)}
+.topbar{position:sticky; top:env(safe-area-inset-top,0px); z-index:50; background:color-mix(in srgb, var(--paper) 92%, transparent); backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px); border-bottom:1px solid var(--line)}
+.topbar .wrap{display:flex; align-items:center; gap:1rem; min-height:4.25rem}
+.brand{display:flex; align-items:center; gap:.65rem; text-decoration:none; color:var(--ink); flex-shrink:0}
+.brand svg{width:2.1rem; height:2.1rem}
+.brand b{font-family:var(--f-display); font-weight:800; font-size:1.1rem; letter-spacing:-.01em; line-height:1}
+.brand small{display:block; font-family:var(--f-mono); font-size:.68rem; letter-spacing:.08em; text-transform:uppercase; color:var(--ink-soft); margin-top:.2rem}
+.navscroll{flex:1; min-width:0; overflow-x:auto; scrollbar-width:none}
+.navscroll::-webkit-scrollbar{display:none}
+.nav{display:flex; gap:.2rem; list-style:none; margin:0; padding:0; white-space:nowrap}
+.nav a{display:block; padding:.5rem .65rem; border-radius:999px; color:var(--ink); text-decoration:none; font-weight:600; font-size:.95rem}
+.nav a:hover{background:var(--line)}
+.nav a[aria-current="true"]{background:var(--ink); color:var(--paper)}
+.tools{display:flex; gap:.35rem; flex-shrink:0}
+.tbtn{appearance:none; border:1.5px solid var(--line); background:var(--surface); color:var(--ink); font:600 .95rem/1 var(--f-body); min-width:2.75rem; height:2.75rem; padding:0 .7rem; border-radius:999px; cursor:pointer; display:inline-flex; align-items:center; justify-content:center; gap:.35rem}
+.tbtn:hover{border-color:var(--ink)}
+.tbtn[aria-pressed="true"]{background:var(--ink); color:var(--paper); border-color:var(--ink)}
+.tools-label{font-family:var(--f-mono); font-size:.7rem; letter-spacing:.06em; text-transform:uppercase; color:var(--ink-soft); align-self:center; margin-right:.2rem}
+@media (max-width: 900px){
+  .topbar .wrap{flex-wrap:wrap; gap:.4rem; padding-block:.5rem}
+  .navscroll{order:3; flex-basis:100%}
+  .tools{margin-left:auto}
+  .tools-label{display:none}
+}
+
+@media (max-width: 520px){
+  .brand small{display:none} .brand b{font-size:.92rem} .brand{gap:.45rem} .brand svg{width:1.7rem;height:1.7rem}
+  .tools{gap:.2rem} .tbtn{min-width:2.4rem; height:2.4rem; padding:0 .4rem; font-size:.85rem}
+}
+/* ---------- Buttons ---------- */
+.btn{appearance:none; display:inline-flex; align-items:center; gap:.55rem; border:2px solid var(--pine); background:var(--pine); color:var(--pine-ink); font:700 1.05rem/1 var(--f-body); padding:.95rem 1.35rem; border-radius:999px; text-decoration:none; cursor:pointer; min-height:3.25rem}
+.btn:hover{filter:brightness(1.08)}
+.btn.ghost{background:transparent; color:var(--pine)}
+.btn.small{font-size:.95rem; padding:.6rem 1rem; min-height:2.75rem}
+.btn.warn{background:var(--rose-ink); border-color:var(--rose-ink); color:var(--surface)}
+.btn svg{width:1.2em; height:1.2em; flex-shrink:0}
+.band .btn{background:var(--marigold); border-color:var(--marigold); color:#1B1405}
+.band .btn.ghost{background:transparent; color:var(--band-ink); border-color:var(--band-soft)}
+
+/* ---------- Hero ---------- */
+.hero{background:var(--band); color:var(--band-ink); position:relative; overflow:hidden}
+.hero .wrap{display:grid; grid-template-columns:minmax(0,1.15fr) minmax(0,1fr); gap:2rem; align-items:center; padding-block:4.5rem 4rem}
+.hero .eyebrow{color:var(--band-soft)}
+.hero h1{font-size:var(--step-4); font-weight:800; margin:1rem 0 1.25rem; letter-spacing:-.035em; line-height:.98}
+.hero h1 em{font-style:normal; color:var(--marigold)}
+.hero .lede{color:var(--band-soft); max-width:36ch}
+.hero-actions{display:flex; flex-wrap:wrap; gap:.75rem; margin-top:2rem}
+.rings{margin:0; position:relative; aspect-ratio:1; max-width:100%; width:100%}
+.rings canvas{width:100%; height:100%; display:block}
+.rings{max-width:30rem; justify-self:end}
+.rings figcaption{position:absolute; right:0; bottom:-.5rem; font-family:var(--f-mono); font-size:.75rem; letter-spacing:.06em; text-transform:uppercase; color:var(--band-soft); text-align:right; max-width:22ch}
+.hero-strip{border-top:1px solid color-mix(in srgb, var(--band-soft) 30%, transparent)}
+.hero-strip .wrap{display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:1.5rem; padding-block:1.4rem}
+.hero-strip div{font-size:.95rem; color:var(--band-soft)}
+.hero-strip b{display:block; color:var(--band-ink); font-family:var(--f-display); font-size:1.15rem}
+@media (max-width: 820px){
+  .hero .wrap{grid-template-columns:1fr; padding-block:3rem 2rem}
+  .rings{max-width:22rem; justify-self:center}
+  .hero-strip .wrap{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+
+/* ---------- Chapters ---------- */
+.chapter{padding-block:5.5rem}
+.chapter + .chapter{border-top:1px solid var(--line)}
+.chap-head{display:grid; grid-template-columns:minmax(0,15rem) minmax(0,1fr); gap:2rem; margin-bottom:3rem; align-items:start}
+.chap-num{display:flex; align-items:center; gap:.8rem}
+.chap-num svg{width:3.2rem; height:3.2rem; flex-shrink:0}
+.chap-num span{font-family:var(--f-mono); font-size:.8rem; letter-spacing:.08em; text-transform:uppercase; color:var(--ink-soft); line-height:1.3}
+.chap-head h2{font-size:var(--step-3); font-weight:800; margin-bottom:1rem}
+.chap-head .lede{margin-bottom:1.25rem}
+.listen{appearance:none; border:1.5px solid var(--line); background:var(--surface); color:var(--ink); border-radius:999px; padding:.5rem .95rem .5rem .7rem; font:600 .95rem/1 var(--f-body); cursor:pointer; display:inline-flex; align-items:center; gap:.5rem; min-height:2.75rem}
+.listen:hover{border-color:var(--ink)}
+.listen[aria-pressed="true"]{background:var(--marigold); border-color:var(--marigold); color:#1B1405}
+.listen svg{width:1.2rem; height:1.2rem}
+@media (max-width: 820px){ .chap-head{grid-template-columns:1fr; gap:1rem} .chapter{padding-block:3.5rem} }
+
+.band{background:var(--band); color:var(--band-ink); border-top:none!important}
+.band .eyebrow,.band .lede,.band .chap-num span{color:var(--band-soft)}
+.band a{color:var(--marigold)}
+.band .listen{background:transparent; color:var(--band-ink); border-color:var(--band-soft)}
+
+/* ---------- Start here ---------- */
+.explain{display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:1.25rem; margin-bottom:3.5rem}
+.explain article{padding:1.6rem; background:var(--surface); border:1px solid var(--line); border-radius:var(--radius)}
+.explain h3{font-size:var(--step-1); margin-bottom:.6rem}
+.explain p{color:var(--ink-soft)}
+.explain .big{font-family:var(--f-display); font-size:2.6rem; font-weight:800; color:var(--pine); line-height:1; margin-bottom:.8rem; display:block}
+@media (max-width: 820px){ .explain{grid-template-columns:1fr} }
+
+.goodbad{display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:1.25rem; margin-bottom:3.5rem}
+.goodbad > div{padding:1.75rem; border-radius:var(--radius)}
+.goodbad .good{background:var(--ok); color:var(--ok-ink)}
+.goodbad .bad{background:var(--rose); color:var(--rose-ink)}
+.goodbad h3{font-size:var(--step-1); margin-bottom:1rem}
+.goodbad ul{margin:0; padding-left:1.2rem; display:grid; gap:.5rem}
+@media (max-width: 720px){ .goodbad{grid-template-columns:1fr} }
+
+.subhead{display:flex; align-items:baseline; justify-content:space-between; gap:1rem; flex-wrap:wrap; margin-bottom:1.25rem}
+.subhead h3{font-size:var(--step-2)}
+.subhead p{color:var(--ink-soft); font-size:1rem}
+
+.glossary{display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:1rem}
+.term{appearance:none; text-align:left; border:1.5px solid var(--line); background:var(--surface); color:var(--ink); border-radius:var(--radius); padding:1.3rem; min-height:11rem; cursor:pointer; font:inherit; display:flex; flex-direction:column; gap:.6rem; transition:border-color .2s, transform .2s}
+.term:hover{border-color:var(--pine); transform:translateY(-2px)}
+.term .word{font-family:var(--f-display); font-size:1.35rem; font-weight:700}
+.term .hint{font-family:var(--f-mono); font-size:.75rem; letter-spacing:.06em; text-transform:uppercase; color:var(--ink-soft); margin-top:auto}
+.term .def{font-size:1rem; line-height:1.5}
+.term[aria-expanded="true"]{background:var(--ink); color:var(--paper); border-color:var(--ink)}
+.term[aria-expanded="true"] .hint{color:var(--marigold)}
+@media (max-width: 1000px){ .glossary{grid-template-columns:repeat(2,minmax(0,1fr))} }
+@media (max-width: 520px){ .glossary{grid-template-columns:1fr} .term{min-height:0} }
+
+/* ---------- Everyday ---------- */
+.filters{display:flex; flex-wrap:wrap; gap:.5rem; margin-bottom:1.75rem}
+.chip{appearance:none; border:1.5px solid var(--line); background:var(--surface); color:var(--ink); border-radius:999px; padding:.6rem 1.05rem; font:600 1rem/1 var(--f-body); cursor:pointer; min-height:2.75rem}
+.chip:hover{border-color:var(--ink)}
+.chip[aria-pressed="true"]{background:var(--pine); border-color:var(--pine); color:var(--pine-ink)}
+.uses{display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:1.25rem}
+.use{background:var(--surface); border:1px solid var(--line); border-radius:var(--radius); padding:1.5rem; display:flex; flex-direction:column; gap:.85rem}
+.use .tag{font-family:var(--f-mono); font-size:.75rem; letter-spacing:.07em; text-transform:uppercase; color:var(--pine)}
+.use h3{font-size:1.3rem}
+.use p{color:var(--ink-soft); font-size:1rem}
+.say{margin-top:auto; background:var(--paper); border:1px dashed var(--line); border-radius:10px; padding:1rem; font-size:1rem}
+.say .lbl{display:block; font-family:var(--f-mono); font-size:.72rem; letter-spacing:.06em; text-transform:uppercase; color:var(--ink-soft); margin-bottom:.4rem}
+.say q{quotes:"“" "”"; font-style:italic}
+.copy{appearance:none; border:none; background:none; color:var(--pine); font:700 .95rem var(--f-body); cursor:pointer; padding:.5rem 0 0; display:inline-flex; gap:.35rem; align-items:center; min-height:2.5rem}
+.copy svg{width:1rem; height:1rem}
+.use .careful{font-size:.9rem; color:var(--rose-ink); background:var(--rose); padding:.55rem .75rem; border-radius:8px}
+@media (max-width: 1000px){ .uses{grid-template-columns:repeat(2,minmax(0,1fr))} }
+@media (max-width: 640px){ .uses{grid-template-columns:1fr} }
+
+.toolsrow{margin-top:3.5rem; display:grid; grid-template-columns:minmax(0,1fr) minmax(0,2fr); gap:2rem; padding:2rem; border:1px solid var(--line); border-radius:var(--radius); background:var(--surface)}
+.toolsrow h3{font-size:var(--step-2)}
+.toolsrow dl{margin:0; display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:1.1rem 2rem}
+.toolsrow dt{font-weight:700}
+.toolsrow dd{margin:0; color:var(--ink-soft); font-size:1rem}
+@media (max-width: 820px){ .toolsrow{grid-template-columns:1fr} .toolsrow dl{grid-template-columns:1fr} }
+
+.sparks{margin-bottom:2.5rem}
+.sparks .eyebrow{margin-bottom:.9rem}
+.spark-list{display:flex; flex-wrap:wrap; gap:.6rem}
+.spark{appearance:none; text-align:left; border:1.5px solid var(--line); background:var(--surface); color:var(--ink); border-radius:12px; padding:.8rem 1rem; font:500 1rem/1.35 var(--f-body); cursor:pointer; max-width:24rem}
+.spark:hover{border-color:var(--pine)}
+.spark[aria-pressed="true"]{border-color:var(--marigold); background:color-mix(in srgb, var(--marigold) 18%, var(--surface))}
+.opt{font-weight:400; color:var(--ink-soft); font-size:.95rem}
+.wb-thinking{font-family:var(--f-display); font-size:1.15rem; color:var(--pine); max-width:none}
+.wb-priv{background:var(--rose); color:var(--rose-ink); border-radius:10px; padding:.75rem 1rem; font-size:.98rem; max-width:none}
+.own-area{display:flex; gap:.5rem; flex-wrap:wrap}
+.own-area input{flex:1; min-width:12rem}
+.wb-acts, .board-acts{display:flex; gap:.6rem; flex-wrap:wrap}
+.result .btn:disabled{opacity:.45; cursor:not-allowed}
+.board{margin-top:3.5rem; display:grid; gap:1.25rem}
+.board-head{display:flex; justify-content:space-between; align-items:flex-end; gap:1rem; flex-wrap:wrap}
+.board-head h3{font-size:var(--step-2); margin-bottom:.4rem}
+.board-head p{color:var(--ink-soft); font-size:1rem}
+.board .filters{margin-bottom:0}
+.use.example{border-style:dashed}
+.use .task{font-family:var(--f-display); font-size:1.25rem; font-weight:700; line-height:1.25; overflow-wrap:anywhere}
+.status{display:flex; flex-wrap:wrap; gap:.35rem}
+.status .chip{font-size:.88rem; padding:.45rem .75rem; min-height:2.4rem}
+.use .note-lbl{font-family:var(--f-mono); font-size:.72rem; letter-spacing:.06em; text-transform:uppercase; color:var(--ink-soft)}
+.use textarea{min-height:4.5rem; font-size:1rem}
+.use .row-end{display:flex; justify-content:space-between; align-items:center; gap:.5rem; flex-wrap:wrap}
+.use .date{font-size:.85rem; color:var(--ink-soft)}
+.linkbtn{appearance:none; border:none; background:none; color:var(--rose-ink); font:600 .95rem var(--f-body); cursor:pointer; padding:.4rem 0; min-height:2.5rem}
+.board-foot{color:var(--ink-soft); font-size:1rem}
+
+/* ---------- Practice / prompt builder ---------- */
+.builder{display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:2rem; align-items:start}
+.steps{display:grid; gap:1.75rem}
+.step{display:grid; gap:.7rem}
+.step label, .step legend{font-weight:700; font-size:1.1rem; padding:0}
+.step fieldset{border:none; margin:0; padding:0; display:grid; gap:.7rem}
+.step .opts{display:flex; flex-wrap:wrap; gap:.5rem}
+.step .n{display:inline-grid; place-items:center; width:1.8rem; height:1.8rem; border-radius:50%; background:var(--marigold); color:#1B1405; font:700 .9rem var(--f-mono); margin-right:.5rem}
+input[type=text], textarea, select{font:inherit; font-size:1.05rem; color:var(--ink); background:var(--surface); border:1.5px solid var(--line); border-radius:10px; padding:.85rem 1rem; width:100%}
+input[type=text]:focus, textarea:focus, select:focus{border-color:var(--pine); outline:3px solid color-mix(in srgb, var(--marigold) 60%, transparent); outline-offset:1px}
+textarea{min-height:6rem; resize:vertical}
+.result{position:sticky; top:7rem; background:var(--band); color:var(--band-ink); border-radius:calc(var(--radius) + 6px); padding:2rem; display:grid; gap:1.25rem}
+.result .eyebrow{color:var(--band-soft)}
+.result blockquote{margin:0; font-family:var(--f-display); font-size:1.45rem; line-height:1.35; font-weight:500}
+.result .why{font-size:.98rem; color:var(--band-soft); border-top:1px solid color-mix(in srgb, var(--band-soft) 35%, transparent); padding-top:1rem}
+.result .why b{color:var(--band-ink)}
+@media (max-width: 860px){ .builder{grid-template-columns:1fr} .result{position:static} }
+
+.habits{margin-top:3.5rem; display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:1.25rem; counter-reset:h}
+.habits li{list-style:none; border-top:3px solid var(--ink); padding-top:1rem}
+.habits h4{font-size:1.2rem; margin-bottom:.4rem}
+.habits p{font-size:1rem; color:var(--ink-soft)}
+.habits{padding:0}
+@media (max-width: 900px){ .habits{grid-template-columns:repeat(2,minmax(0,1fr))} }
+@media (max-width: 520px){ .habits{grid-template-columns:1fr} }
+
+/* ---------- Safety ---------- */
+.never{display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:1rem; margin-bottom:3.5rem; padding:0}
+.never li{list-style:none; border:1px solid color-mix(in srgb, var(--band-soft) 35%, transparent); border-radius:var(--radius); padding:1.25rem; display:flex; gap:.9rem; align-items:flex-start}
+.never svg{width:1.6rem; height:1.6rem; flex-shrink:0; color:var(--marigold); margin-top:.1rem}
+.never b{display:block; font-size:1.1rem; margin-bottom:.2rem}
+.never span{color:var(--band-soft); font-size:1rem}
+@media (max-width: 900px){ .never{grid-template-columns:repeat(2,minmax(0,1fr))} }
+@media (max-width: 560px){ .never{grid-template-columns:1fr} }
+
+.quiz{background:var(--surface); color:var(--ink); border-radius:calc(var(--radius) + 6px); padding:2.25rem; display:grid; gap:1.5rem}
+.quiz .top{display:flex; justify-content:space-between; gap:1rem; align-items:baseline; flex-wrap:wrap}
+.quiz h3{font-size:var(--step-2)}
+.quiz .count{font-family:var(--f-mono); font-size:.85rem; color:var(--ink-soft)}
+.scenario{font-family:var(--f-display); font-size:1.5rem; line-height:1.35; font-weight:500; max-width:40ch}
+.quiz .opts{display:flex; gap:.75rem; flex-wrap:wrap}
+.band .quiz .btn{background:var(--pine); border-color:var(--pine); color:var(--pine-ink)}
+.band .quiz .btn.ghost{background:transparent; color:var(--pine); border-color:var(--pine)}
+.quiz .btn:disabled{opacity:.5; cursor:default}
+.verdict{border-radius:12px; padding:1.25rem 1.4rem; font-size:1.05rem}
+.verdict.right{background:var(--ok); color:var(--ok-ink)}
+.verdict.wrong{background:var(--rose); color:var(--rose-ink)}
+.verdict b{display:block; font-size:1.15rem; margin-bottom:.3rem}
+.pips{display:flex; gap:.4rem}
+.pips i{width:.7rem; height:.7rem; border-radius:50%; background:var(--line); display:block}
+.pips i.on{background:var(--pine)}
+
+.safety-grid{display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:1.25rem; margin-top:3.5rem}
+.safety-grid > div{border:1px solid color-mix(in srgb, var(--band-soft) 35%, transparent); border-radius:var(--radius); padding:1.75rem}
+.safety-grid h3{font-size:var(--step-1); margin-bottom:.9rem}
+.safety-grid ol, .safety-grid ul{margin:0; padding-left:1.25rem; display:grid; gap:.55rem; color:var(--band-soft)}
+.safety-grid li b{color:var(--band-ink)}
+.help{margin-top:1.25rem; display:grid; gap:.8rem}
+.help div{display:flex; justify-content:space-between; gap:1rem; flex-wrap:wrap; border-top:1px solid color-mix(in srgb, var(--band-soft) 30%, transparent); padding-top:.8rem}
+.help .num{font-family:var(--f-mono); font-weight:600; color:var(--marigold); user-select:all}
+@media (max-width: 820px){ .safety-grid{grid-template-columns:1fr} .quiz{padding:1.5rem} }
+
+/* ---------- Perspectives ---------- */
+.persp{display:grid; grid-template-columns:minmax(0,18rem) minmax(0,1fr); gap:2.5rem}
+.ptabs{display:grid; gap:.5rem; align-content:start}
+.ptab{appearance:none; text-align:left; border:1.5px solid var(--line); background:var(--surface); color:var(--ink); border-radius:12px; padding:1rem 1.1rem; font:inherit; cursor:pointer; display:flex; gap:.8rem; align-items:center}
+.ptab:hover{border-color:var(--ink)}
+.ptab[aria-selected="true"]{background:var(--ink); color:var(--paper); border-color:var(--ink)}
+.ptab .who{font-weight:700; font-size:1.05rem; line-height:1.2}
+.ptab .dot{width:.85rem; height:.85rem; border-radius:50%; border:2px solid currentColor; flex-shrink:0}
+.ptab[aria-selected="true"] .dot{background:var(--marigold); border-color:var(--marigold)}
+.ppanel{display:grid; gap:1.5rem; align-content:start}
+.ppanel .voice{font-family:var(--f-display); font-size:clamp(1.6rem, 3vw, 2.3rem); line-height:1.2; font-weight:500; letter-spacing:-.02em; max-width:28ch}
+.ppanel .voice::before{content:"“"; color:var(--marigold)}
+.ppanel .voice::after{content:"”"; color:var(--marigold)}
+.ppanel .cols{display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:1.25rem}
+.ppanel .cols div{background:var(--surface); border:1px solid var(--line); border-radius:var(--radius); padding:1.4rem}
+.ppanel h4{font-family:var(--f-mono); font-size:.8rem; letter-spacing:.07em; text-transform:uppercase; color:var(--ink-soft); font-weight:600; margin-bottom:.6rem}
+@media (max-width: 860px){ .persp{grid-template-columns:1fr} .ptabs{grid-template-columns:repeat(2,minmax(0,1fr))} .ppanel .cols{grid-template-columns:1fr} }
+
+.principles{display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); gap:0; border:1.5px solid var(--ink); border-radius:var(--radius); overflow:hidden}
+.principles > div{padding:1.5rem 1.25rem; border-right:1.5px solid var(--ink)}
+.principles > div:last-child{border-right:none}
+.principles h4{font-size:1.15rem; margin-bottom:.5rem}
+.principles p{font-size:.98rem; color:var(--ink-soft)}
+.principles-head{margin-top:4rem}
+@media (max-width: 1000px){ .principles{grid-template-columns:1fr} .principles > div{border-right:none; border-bottom:1.5px solid var(--ink)} .principles > div:last-child{border-bottom:none} }
+
+/* ---------- Planet ---------- */
+#planet{background:var(--sky)}
+.calc{display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1.2fr); gap:2rem; background:var(--surface); border-radius:calc(var(--radius) + 6px); padding:2.25rem; box-shadow:var(--shadow)}
+.calc h3{font-size:var(--step-2); margin-bottom:.75rem}
+.calc p{color:var(--ink-soft)}
+.slider{margin-top:1.75rem}
+.slider label{display:flex; justify-content:space-between; align-items:baseline; font-weight:700; gap:1rem}
+.slider output{font-family:var(--f-display); font-size:2.5rem; font-weight:800; color:var(--pine); line-height:1}
+input[type=range]{width:100%; margin-top:1rem; accent-color:var(--pine); height:2.25rem}
+.readouts{display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:1rem; align-content:start}
+.readout{border-top:3px solid var(--pine); padding-top:.9rem}
+.readout .v{font-family:var(--f-display); font-size:2rem; font-weight:800; line-height:1; font-variant-numeric:tabular-nums}
+.readout .u{font-family:var(--f-mono); font-size:.78rem; letter-spacing:.05em; text-transform:uppercase; color:var(--ink-soft); display:block; margin-top:.35rem}
+.readout p{font-size:.95rem; margin-top:.6rem}
+.drops{grid-column:1/-1; display:flex; flex-wrap:wrap; gap:3px; min-height:2rem; align-content:flex-start}
+.drops i{width:9px; height:12px; background:var(--pine); border-radius:50% 50% 50% 50% / 60% 60% 40% 40%; opacity:.8; display:block}
+.calc .fine{grid-column:1/-1; font-size:.92rem; color:var(--ink-soft); border-top:1px solid var(--line); padding-top:1rem; max-width:none}
+@media (max-width: 900px){ .calc{grid-template-columns:1fr; padding:1.5rem} .readouts{grid-template-columns:1fr} }
+
+.facts{display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:1.25rem; margin-top:3rem}
+.fact{padding:1.5rem 0 0; border-top:1.5px solid var(--ink)}
+.fact .v{font-family:var(--f-display); font-size:2.6rem; font-weight:800; line-height:1; letter-spacing:-.03em}
+.fact h4{font-size:1.1rem; margin:.7rem 0 .4rem}
+.fact p{font-size:1rem; color:var(--ink-soft)}
+.fact .src{display:block; font-family:var(--f-mono); font-size:.72rem; letter-spacing:.04em; color:var(--ink-soft); margin-top:.6rem}
+@media (max-width: 900px){ .facts{grid-template-columns:1fr 1fr} }
+@media (max-width: 560px){ .facts{grid-template-columns:1fr} }
+
+.balance{margin-top:3.5rem; display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:1.25rem}
+.balance > div{background:var(--surface); border-radius:var(--radius); padding:1.75rem}
+.balance h3{font-size:var(--step-1); margin-bottom:.8rem}
+.balance ul{margin:0; padding-left:1.2rem; display:grid; gap:.55rem; color:var(--ink-soft)}
+@media (max-width: 820px){ .balance{grid-template-columns:1fr} }
+
+/* ---------- Story booth ---------- */
+.booth{display:grid; grid-template-columns:minmax(0,1.1fr) minmax(0,1fr); gap:2rem; align-items:start}
+.recorder{background:var(--band); color:var(--band-ink); border-radius:calc(var(--radius) + 8px); padding:2.25rem; display:grid; gap:1.5rem}
+.recorder .eyebrow{color:var(--band-soft)}
+.prompt-card{font-family:var(--f-display); font-size:1.55rem; line-height:1.3; font-weight:500; min-height:4em}
+.rec-row{display:flex; align-items:center; gap:1.25rem; flex-wrap:wrap}
+.recbtn{appearance:none; width:6rem; height:6rem; border-radius:50%; border:4px solid var(--band-ink); background:transparent; cursor:pointer; display:grid; place-items:center; flex-shrink:0; transition:transform .15s}
+.recbtn:hover{transform:scale(1.04)}
+.recbtn span{display:block; width:2.4rem; height:2.4rem; border-radius:50%; background:#E0533D; transition:border-radius .2s, width .2s, height .2s}
+.recbtn[aria-pressed="true"] span{border-radius:6px; width:2rem; height:2rem}
+.recbtn[aria-pressed="true"]{animation:pulse 1.6s ease-in-out infinite}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(224,83,61,.5)}50%{box-shadow:0 0 0 14px rgba(224,83,61,0)}}
+.rec-status{display:grid; gap:.25rem}
+.rec-status b{font-size:1.2rem}
+.timer{font-family:var(--f-mono); font-size:2rem; font-variant-numeric:tabular-nums; color:var(--marigold)}
+.wave{width:100%; height:70px; display:block; border-radius:10px; background:color-mix(in srgb, var(--band-ink) 6%, transparent)}
+.save-form{display:grid; gap:1rem; background:color-mix(in srgb, var(--band-ink) 7%, transparent); padding:1.4rem; border-radius:var(--radius)}
+.save-form label{font-weight:700; font-size:1rem; display:grid; gap:.4rem}
+.save-form input, .save-form select, .save-form textarea{background:var(--surface); color:var(--ink)}
+.save-form audio{width:100%}
+.row2{display:grid; grid-template-columns:1fr 1fr; gap:1rem}
+@media (max-width: 560px){ .row2{grid-template-columns:1fr} }
+.notice{font-size:.95rem; color:var(--band-soft); display:flex; gap:.6rem; align-items:flex-start}
+.notice svg{width:1.3rem; height:1.3rem; flex-shrink:0; color:var(--marigold); margin-top:.15rem}
+.recorder .err{background:var(--rose); color:var(--rose-ink); padding:1rem 1.2rem; border-radius:10px; font-size:1rem}
+
+.shelf{display:grid; gap:1rem}
+.shelf-head{display:flex; justify-content:space-between; align-items:baseline; gap:1rem; flex-wrap:wrap}
+.shelf-head h3{font-size:var(--step-2)}
+.shelf-head span{font-family:var(--f-mono); font-size:.85rem; color:var(--ink-soft)}
+.story{background:var(--surface); border:1px solid var(--line); border-radius:var(--radius); padding:1.35rem; display:grid; gap:.75rem}
+.story.example{border-style:dashed}
+.story .meta{display:flex; gap:.5rem; flex-wrap:wrap; align-items:center; font-size:.9rem; color:var(--ink-soft)}
+.story .kind{font-family:var(--f-mono); font-size:.72rem; letter-spacing:.06em; text-transform:uppercase; padding:.3rem .6rem; border-radius:999px; background:var(--paper); color:var(--ink)}
+.story h4{font-size:1.25rem}
+.story p{font-size:1rem; color:var(--ink-soft)}
+.story audio{width:100%}
+.story .acts{display:flex; gap:.5rem; flex-wrap:wrap}
+.confirm{display:flex; gap:.5rem; align-items:center; flex-wrap:wrap; background:var(--rose); color:var(--rose-ink); padding:.7rem .9rem; border-radius:10px; font-size:.95rem}
+.empty{border:1.5px dashed var(--line); border-radius:var(--radius); padding:1.5rem; color:var(--ink-soft)}
+@media (max-width: 900px){ .booth{grid-template-columns:1fr} .recorder{padding:1.5rem} }
+
+/* ---------- Keep learning ---------- */
+.path{display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:1.25rem; padding:0; margin:0}
+.week{list-style:none; background:var(--surface); border:1px solid var(--line); border-radius:var(--radius); padding:1.5rem; display:grid; gap:.9rem; align-content:start}
+.week .wk{font-family:var(--f-mono); font-size:.8rem; letter-spacing:.07em; text-transform:uppercase; color:var(--pine); font-weight:600}
+.week h3{font-size:1.3rem}
+.check{display:flex; gap:.7rem; align-items:flex-start; font-size:1rem; cursor:pointer; line-height:1.45}
+.check input{width:1.4rem; height:1.4rem; accent-color:var(--pine); flex-shrink:0; margin-top:.05rem}
+.progress{display:flex; align-items:center; gap:1rem; margin-bottom:1.75rem; flex-wrap:wrap}
+.bar{flex:1; min-width:10rem; height:.75rem; background:var(--line); border-radius:999px; overflow:hidden}
+.bar i{display:block; height:100%; background:var(--pine); width:0; transition:width .4s}
+.progress span{font-family:var(--f-mono); font-size:.9rem; color:var(--ink-soft)}
+@media (max-width: 1000px){ .path{grid-template-columns:repeat(2,minmax(0,1fr))} }
+@media (max-width: 560px){ .path{grid-template-columns:1fr} }
+
+.download{margin-top:4rem; display:grid; grid-template-columns:minmax(0,1.3fr) minmax(0,1fr); gap:2rem; background:var(--band); color:var(--band-ink); border-radius:calc(var(--radius) + 8px); padding:2.5rem; align-items:center}
+.download h3{font-size:var(--step-3); font-weight:800; margin-bottom:.8rem}
+.download p{color:var(--band-soft)}
+.download ol{margin:1rem 0 0; padding-left:1.2rem; color:var(--band-soft); display:grid; gap:.4rem}
+.download .file{border:1.5px dashed color-mix(in srgb, var(--band-soft) 50%, transparent); border-radius:var(--radius); padding:1.5rem; display:grid; gap:1rem; justify-items:start}
+.download .file code{font-family:var(--f-mono); font-size:.9rem; color:var(--marigold); word-break:break-all}
+@media (max-width: 820px){ .download{grid-template-columns:1fr; padding:1.75rem} }
+
+footer{padding-block:3rem 4rem; border-top:1px solid var(--line); font-size:.95rem; color:var(--ink-soft)}
+footer .wrap{display:grid; grid-template-columns:minmax(0,1.4fr) minmax(0,1fr); gap:2rem}
+footer p{margin-bottom:.6rem}
+@media (max-width: 720px){ footer .wrap{grid-template-columns:1fr} }
+
+.toast{position:fixed; left:50%; bottom:calc(1.5rem + env(safe-area-inset-bottom,0px)); transform:translateX(-50%) translateY(150%); visibility:hidden; background:var(--ink); color:var(--paper); padding:.9rem 1.3rem; border-radius:999px; font-weight:700; z-index:80; transition:transform .3s; max-width:calc(100% - 32px)}
+.toast.show{transform:translateX(-50%) translateY(0); visibility:visible}
+.sr{position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to the guide</a>
+
+<!-- Shared ring icon -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-ring" viewBox="0 0 48 48"><g fill="none" stroke="currentColor" stroke-width="2"><circle cx="24" cy="24" r="21"/><circle cx="24" cy="24" r="15" opacity=".75"/><circle cx="24" cy="24" r="9" opacity=".5"/><circle cx="24" cy="24" r="3" fill="currentColor"/></g></symbol>
+    <symbol id="i-speaker" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9h4l5-4v14l-5-4H4z"/><path d="M16.5 8.5a5 5 0 0 1 0 7"/><path d="M19 6a8.5 8.5 0 0 1 0 12"/></g></symbol>
+    <symbol id="i-copy" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2"/></g></symbol>
+    <symbol id="i-no" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M5.6 5.6l12.8 12.8"/></g></symbol>
+    <symbol id="i-lock" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></g></symbol>
+    <symbol id="i-down" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11"/><path d="M7 10l5 5 5-5"/><path d="M5 20h14"/></g></symbol>
+  </defs>
+</svg>
+
+<header class="topbar">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Living Well with AI, back to top">
+      <svg aria-hidden="true" style="color:var(--pine)"><use href="#i-ring"/></svg>
+      <span><b>Living Well with AI</b><small>Givens Aldersgate</small></span>
+    </a>
+    <nav class="navscroll" aria-label="Chapters">
+      <ul class="nav">
+        <li><a href="#start">Start here</a></li>
+        <li><a href="#everyday">Everyday uses</a></li>
+        <li><a href="#practice">Practice</a></li>
+        <li><a href="#safety">Stay safe</a></li>
+        <li><a href="#perspectives">Perspectives</a></li>
+        <li><a href="#planet">The planet</a></li>
+        <li><a href="#stories">Story booth</a></li>
+        <li><a href="#learning">Keep learning</a></li>
+      </ul>
+    </nav>
+    <div class="tools" role="group" aria-label="Reading settings">
+            <button class="tbtn" id="size-btn" type="button" aria-label="Change text size">A<span style="font-size:1.25em">A</span></button>
+      <button class="tbtn" id="contrast-btn" type="button" aria-pressed="false" aria-label="High contrast">
+        <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 3a9 9 0 0 1 0 18z" fill="currentColor"/></svg>
+      </button>
+      <button class="tbtn" id="theme-btn" type="button" aria-label="Switch light or dark">
+        <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+<!-- ================= HERO ================= -->
+<section class="hero band" id="top">
+  <div class="wrap">
+    <div>
+      <p class="eyebrow">A field guide for the Givens Aldersgate community · Charlotte, NC</p>
+      <h1>Living well with <em>AI</em>, at your own pace.</h1>
+      <p class="lede">Plain talk about the new tools everyone's discussing. What they are, what they're good for, how to stay safe, and how to use them with good judgment. No jargon, no pressure.</p>
+      <div class="hero-actions">
+        <a class="btn" href="#start">Start at the beginning</a>
+        <a class="btn ghost" href="#stories">Share your story</a>
+      </div>
+    </div>
+    <figure class="rings" aria-hidden="true">
+      <canvas id="rings"></canvas>
+      <figcaption>Every ring is a season of learning. Nobody stops growing.</figcaption>
+    </figure>
+  </div>
+  <div class="hero-strip">
+    <div class="wrap">
+      <div><b>8 short chapters</b>Read in any order</div>
+      <div><b>Tap “Listen”</b>Any chapter can be read aloud</div>
+      <div><b>Bigger text</b>Use the “AA” button up top</div>
+      <div><b>Works offline</b>Download your own copy</div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 1. START HERE ================= -->
+<section class="chapter" id="start" data-ring="1">
+  <div class="wrap">
+    <div class="chap-head">
+      <div class="chap-num"><svg aria-hidden="true" style="color:var(--pine)"><use href="#i-ring"/></svg><span>Chapter 1<br>Start here</span></div>
+      <div>
+        <h2>So what is AI, really?</h2>
+        <p class="lede">Think of today's AI chat tools as a very well-read assistant who has never left the library. It has read an enormous amount of writing and learned how words usually fit together. It's quick and helpful, and sometimes confidently wrong.</p>
+        <button class="listen" type="button"><svg aria-hidden="true"><use href="#i-speaker"/></svg><span>Listen to this chapter</span></button>
+      </div>
+    </div>
+
+    <div class="explain">
+      <article>
+        <span class="big">Predicts</span>
+        <h3>It guesses the next word</h3>
+        <p>When you ask a question, it builds an answer one word at a time, picking what's most likely to come next. That's why it sounds so natural. It's also why it can make things up without knowing it.</p>
+      </article>
+      <article>
+        <span class="big">Learns</span>
+        <h3>From patterns, not experience</h3>
+        <p>It learned from books, websites and articles. It has never tasted barbecue or watched a sunrise. It knows about life the way a library knows about life.</p>
+      </article>
+      <article>
+        <span class="big">Assists</span>
+        <h3>You stay in charge</h3>
+        <p>The best way to use it is as a helper. It drafts, explains and suggests. You decide, check and finish. Your judgment and life experience are the part it can't supply.</p>
+      </article>
+    </div>
+
+    <div class="goodbad">
+      <div class="good">
+        <h3>Where AI shines</h3>
+        <ul>
+          <li>Explaining a confusing letter or form in plain words</li>
+          <li>Drafting a note, toast, or thank-you you can then make your own</li>
+          <li>Brainstorming gift ideas, menus, or things to do</li>
+          <li>Answering “how do I…” questions about your phone or computer</li>
+          <li>Being patient with the same question asked five different ways</li>
+        </ul>
+      </div>
+      <div class="bad">
+        <h3>Where to be careful</h3>
+        <ul>
+          <li>Facts, dates, quotes and phone numbers. Always double-check.</li>
+          <li>Medical, legal or money decisions. Use it to prepare questions, then ask a professional.</li>
+          <li>Recent news. It may not know what happened this week.</li>
+          <li>Anything private. Treat the chat box like a postcard, not a sealed letter.</li>
+          <li>Voices, photos and videos online. They can now be faked convincingly.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="subhead">
+      <h3>Words you'll hear, in plain English</h3>
+      <p>Tap a card to flip it.</p>
+    </div>
+    <div class="glossary" id="glossary"></div>
+  </div>
+</section>
+
+<!-- ================= 2. EVERYDAY ================= -->
+<section class="chapter" id="everyday">
+  <div class="wrap">
+    <div class="chap-head">
+      <div class="chap-num"><svg aria-hidden="true" style="color:var(--pine)"><use href="#i-ring"/></svg><span>Chapter 2<br>Everyday uses</span></div>
+      <div>
+        <h2>Your everyday, your way</h2>
+        <p class="lede">No two people's days look alike, so we won't guess at yours. Tell us about something on your plate: a chore, a project, a question, a curiosity. We'll help you turn it into something you can ask an AI assistant, and you can keep a list of what you tried and how it went.</p>
+        <button class="listen" type="button"><svg aria-hidden="true"><use href="#i-speaker"/></svg><span>Listen to this chapter</span></button>
+      </div>
+    </div>
+    <div class="sparks">
+      <p class="eyebrow">Not sure where to start? Pick a question to think about</p>
+      <div class="spark-list" id="sparks"></div>
+    </div>
+
+    <div class="builder workbench">
+      <form class="steps" id="wb-form">
+        <div class="step">
+          <label for="wb-task"><span class="n">1</span>What's the task, in your own words?</label>
+          <p class="wb-thinking" id="wb-thinking" hidden></p>
+          <textarea id="wb-task" placeholder="Anything at all. A pile of paperwork, a trip, a recipe, a speech, a new phone setting, a question you've been wondering about…"></textarea>
+          <p class="wb-priv" id="wb-priv" role="alert" hidden>That looks like it might include something private, like a number or password. Take it out before you paste this into an AI tool. General terms work just as well.</p>
+        </div>
+        <div class="step">
+          <fieldset>
+            <legend><span class="n">2</span>Which part of life is it? <span class="opt">(optional)</span></legend>
+            <div class="opts" id="wb-areas"></div>
+            <div class="own-area">
+              <label class="sr" for="wb-area-other">Name your own area</label>
+              <input type="text" id="wb-area-other" placeholder="Or name your own, e.g. Choir, Garden club, Grandparenting">
+              <button class="btn ghost small" type="button" id="wb-area-add">Use this</button>
+            </div>
+          </fieldset>
+        </div>
+        <div class="step">
+          <fieldset>
+            <legend><span class="n">3</span>How could AI help? Pick any that fit.</legend>
+            <div class="opts" id="wb-angles"></div>
+          </fieldset>
+        </div>
+      </form>
+      <aside class="result band" aria-live="polite">
+        <p class="eyebrow">Ready to ask</p>
+        <blockquote id="wb-prompt"></blockquote>
+        <p class="why" id="wb-care"></p>
+        <div class="wb-acts">
+          <button class="btn small" type="button" id="wb-save">Add to my list</button>
+          <button class="btn ghost small" type="button" id="wb-copy"><svg aria-hidden="true"><use href="#i-copy"/></svg>Copy</button>
+        </div>
+      </aside>
+    </div>
+
+    <div class="board">
+      <div class="board-head">
+        <div>
+          <h3>My everyday uses</h3>
+          <p>Your list is saved in this browser on this device. Try things, then come back and note how it went.</p>
+        </div>
+        <div class="board-acts">
+          <button class="btn ghost small" type="button" id="board-copy"><svg aria-hidden="true"><use href="#i-copy"/></svg>Copy my list</button>
+          <a class="btn ghost small" id="board-dl" href="#" download="my-everyday-ai-uses.txt"><svg aria-hidden="true"><use href="#i-down"/></svg>Save as a file</a>
+        </div>
+      </div>
+      <div class="filters" role="group" aria-label="Show uses by area" id="board-filters"></div>
+      <div class="uses" id="board"></div>
+      <p class="board-foot">Bring your list to a learning group and compare notes. Everyone's will look different, and that's the point.</p>
+    </div>
+
+    <div class="toolsrow">
+      <div>
+        <p class="eyebrow">Which tool?</p>
+        <h3>You don't need anything fancy</h3>
+        <p style="color:var(--ink-soft);margin-top:.75rem">Most of these have a free version and work on a phone, tablet or computer. Pick one and get comfortable before trying others.</p>
+      </div>
+      <dl>
+        <div><dt>Chat assistants</dt><dd>ChatGPT, Google Gemini, Claude and Microsoft Copilot. You type or speak a question and get a written answer.</dd></div>
+        <div><dt>Voice assistants</dt><dd>Siri, Alexa and Google Assistant. Good for timers, reminders, weather and quick questions, hands-free.</dd></div>
+        <div><dt>Seeing helpers</dt><dd>Apps like Be My Eyes and Seeing AI can describe what your camera sees or read printed text out loud.</dd></div>
+        <div><dt>Built in already</dt><dd>Your phone's photo search, email spam filter and map directions all use AI quietly in the background.</dd></div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 3. PRACTICE ================= -->
+<section class="chapter" id="practice">
+  <div class="wrap">
+    <div class="chap-head">
+      <div class="chap-num"><svg aria-hidden="true" style="color:var(--pine)"><use href="#i-ring"/></svg><span>Chapter 3<br>Practice</span></div>
+      <div>
+        <h2>How to ask so you get a good answer</h2>
+        <p class="lede">Talk to it the way you'd brief a helpful new neighbor. Say what you want, give a little background, and say how you'd like the answer. Build one below and watch it come together.</p>
+        <button class="listen" type="button"><svg aria-hidden="true"><use href="#i-speaker"/></svg><span>Listen to this chapter</span></button>
+      </div>
+    </div>
+
+    <div class="builder">
+      <form class="steps" id="builder" onsubmit="return false">
+        <div class="step">
+          <fieldset>
+            <legend><span class="n">1</span>What would you like help with?</legend>
+            <div class="opts" data-group="task"></div>
+          </fieldset>
+        </div>
+        <div class="step">
+          <label for="b-topic"><span class="n">2</span>What's it about? A few words is plenty.</label>
+          <input type="text" id="b-topic" value="a toast for my friend's birthday dinner">
+        </div>
+        <div class="step">
+          <label for="b-context"><span class="n">3</span>Anything it should know about you?</label>
+          <input type="text" id="b-context" value="I want it to sound like me: warm, with a little humor">
+        </div>
+        <div class="step">
+          <fieldset>
+            <legend><span class="n">4</span>How would you like the answer?</legend>
+            <div class="opts" data-group="style"></div>
+          </fieldset>
+        </div>
+      </form>
+      <div class="result band" aria-live="polite">
+        <p class="eyebrow">Your request, ready to use</p>
+        <blockquote id="b-out"></blockquote>
+        <div><button class="btn small" type="button" id="b-copy"><svg aria-hidden="true"><use href="#i-copy"/></svg>Copy these words</button></div>
+        <p class="why"><b>Why this works:</b> it says the job, gives context only you could provide, and tells the assistant how to shape the answer. If you don't like what comes back, just reply “Try again, but shorter” or “Make it less formal.” You can keep going back and forth as long as you like.</p>
+      </div>
+    </div>
+
+    <ul class="habits">
+      <li><h4>Ask follow-ups</h4><p>The first answer is a draft. Say “simpler, please” or “give me three options.”</p></li>
+      <li><h4>Check the facts</h4><p>Ask “Where does that come from?” Then look it up somewhere you trust.</p></li>
+      <li><h4>Keep it general</h4><p>Say “my bank,” not the name and account number. It doesn't need specifics to help.</p></li>
+      <li><h4>Make it yours</h4><p>Edit what it writes so it sounds like you. Your voice is the point.</p></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ================= 4. SAFETY ================= -->
+<section class="chapter band" id="safety">
+  <div class="wrap">
+    <div class="chap-head">
+      <div class="chap-num"><svg aria-hidden="true" style="color:var(--marigold)"><use href="#i-ring"/></svg><span>Chapter 4<br>Stay safe</span></div>
+      <div>
+        <h2>Privacy, security, and spotting fakes</h2>
+        <p class="lede">AI makes good things easier. Unfortunately it makes scams easier too. A few simple habits protect you from nearly all of it.</p>
+        <button class="listen" type="button"><svg aria-hidden="true"><use href="#i-speaker"/></svg><span>Listen to this chapter</span></button>
+      </div>
+    </div>
+
+    <p class="eyebrow" style="margin-bottom:1rem">Never type these into an AI chat</p>
+    <ul class="never">
+      <li><svg aria-hidden="true"><use href="#i-no"/></svg><div><b>Social Security number</b><span>Or your Medicare ID. No helper ever needs them.</span></div></li>
+      <li><svg aria-hidden="true"><use href="#i-no"/></svg><div><b>Bank and card numbers</b><span>Ask about “my checking account” in general terms.</span></div></li>
+      <li><svg aria-hidden="true"><use href="#i-no"/></svg><div><b>Passwords and PINs</b><span>Not even to ask whether a password is strong.</span></div></li>
+      <li><svg aria-hidden="true"><use href="#i-no"/></svg><div><b>Full medical records</b><span>Describe a symptom or question instead of pasting a chart.</span></div></li>
+      <li><svg aria-hidden="true"><use href="#i-no"/></svg><div><b>Other people's private details</b><span>Your neighbor's diagnosis is their story to share.</span></div></li>
+      <li><svg aria-hidden="true"><use href="#i-no"/></svg><div><b>Photos of ID or checks</b><span>Driver's license, passport or a signed check.</span></div></li>
+    </ul>
+
+    <div class="quiz" id="quiz">
+      <div class="top">
+        <h3>Real or scam? Try five.</h3>
+        <div style="display:flex;gap:1rem;align-items:center"><div class="pips" id="q-pips"></div><span class="count" id="q-count"></span></div>
+      </div>
+      <p class="scenario" id="q-text"></p>
+      <div class="opts" id="q-opts">
+        <button class="btn" type="button" data-a="safe">Probably fine</button>
+        <button class="btn" type="button" data-a="scam" style="background:var(--rose-ink);border-color:var(--rose-ink);color:var(--surface)">Red flag</button>
+      </div>
+      <div id="q-verdict" class="verdict" hidden></div>
+      <div><button class="btn ghost small" type="button" id="q-next" hidden>Next one</button></div>
+    </div>
+
+    <div class="safety-grid">
+      <div>
+        <h3>The voice-clone call</h3>
+        <ol>
+          <li><b>Pick a family safe word.</b> Something only your family knows. Anyone calling in a “crisis” has to say it.</li>
+          <li><b>Hang up and call back</b> on the number you already have saved, not the one that called you.</li>
+          <li><b>Slow down.</b> Scammers rely on panic. Real emergencies can wait five minutes for you to check.</li>
+          <li><b>Gift cards, wire transfers, crypto</b>: nobody legitimate asks to be paid this way. Ever.</li>
+        </ol>
+      </div>
+      <div>
+        <h3>Tidy up your privacy settings</h3>
+        <ul>
+          <li>In any AI app, open <b>Settings</b> and look for words like “Data controls,” “Activity,” or “Improve the model.” You can usually turn off having your chats used for training.</li>
+          <li><b>Delete old chats</b> you no longer need.</li>
+          <li>Use a <b>strong, unique password</b> and turn on two-step sign-in.</li>
+          <li>Only download apps from the official <b>App Store or Google Play</b>.</li>
+        </ul>
+      </div>
+      <div style="grid-column:1/-1">
+        <h3>If something feels off, tell someone</h3>
+        <p style="color:var(--band-soft);max-width:none">Talking it over with a neighbor or family member is the best scam filter there is. And it's never embarrassing. These schemes fool smart people every day.</p>
+        <div class="help">
+          <div><span>NC Attorney General, Consumer Protection</span><span class="num">1-877-566-7226</span></div>
+          <div><span>AARP Fraud Watch Network Helpline</span><span class="num">1-877-908-3360</span></div>
+          <div><span>Federal Trade Commission, report fraud online</span><span class="num">ReportFraud.ftc.gov</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 5. PERSPECTIVES ================= -->
+<section class="chapter" id="perspectives">
+  <div class="wrap">
+    <div class="chap-head">
+      <div class="chap-num"><svg aria-hidden="true" style="color:var(--pine)"><use href="#i-ring"/></svg><span>Chapter 5<br>Perspectives</span></div>
+      <div>
+        <h2>One tool, many points of view</h2>
+        <p class="lede">Good people disagree about AI, and that's healthy. Step into a few different shoes. Each has something true to say, and a fair question worth asking.</p>
+        <button class="listen" type="button"><svg aria-hidden="true"><use href="#i-speaker"/></svg><span>Listen to this chapter</span></button>
+      </div>
+    </div>
+
+    <div class="persp">
+      <div class="ptabs" role="tablist" aria-label="Perspectives" id="ptabs"></div>
+      <div class="ppanel" role="tabpanel" id="ppanel" aria-live="polite"></div>
+    </div>
+
+    <div class="subhead principles-head"><h3>Five principles for working with AI responsibly</h3></div>
+    <div class="principles">
+      <div><h4>You're the editor</h4><p>AI drafts. You decide what's true, kind and worth sending.</p></div>
+      <div><h4>Be honest about it</h4><p>If AI helped write something important, it's fine to say so.</p></div>
+      <div><h4>Protect others too</h4><p>Don't share friends' photos, names or stories without asking.</p></div>
+      <div><h4>Question the answer</h4><p>Ask who might be left out, or what it might have gotten wrong.</p></div>
+      <div><h4>Keep people central</h4><p>Use it to free up time for each other, not to replace each other.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 6. PLANET ================= -->
+<section class="chapter" id="planet">
+  <div class="wrap">
+    <div class="chap-head">
+      <div class="chap-num"><svg aria-hidden="true" style="color:var(--pine)"><use href="#i-ring"/></svg><span>Chapter 6<br>The planet</span></div>
+      <div>
+        <h2>What does a question to AI cost the Earth?</h2>
+        <p class="lede">AI runs in giant buildings full of computers called data centers. They use electricity and water to stay cool, including some right here in the Carolinas. Here's what Google reports in its 2026 Environmental Report, and how to think about it.</p>
+        <button class="listen" type="button"><svg aria-hidden="true"><use href="#i-speaker"/></svg><span>Listen to this chapter</span></button>
+      </div>
+    </div>
+
+    <div class="calc">
+      <div>
+        <p class="eyebrow">Your footprint calculator</p>
+        <h3>How much do you ask in a day?</h3>
+        <p>Google measured a typical text question to its Gemini assistant. Slide to see what a year of your questions adds up to.</p>
+        <div class="slider">
+          <label for="prompts">Questions per day <output id="p-out" for="prompts">10</output></label>
+          <input type="range" id="prompts" min="1" max="60" value="10">
+        </div>
+      </div>
+      <div class="readouts">
+        <div class="readout"><span class="v" id="r-tv">0</span><span class="u">minutes of TV</span><p>Each question uses about as much energy as watching TV for under 9 seconds.</p></div>
+        <div class="readout"><span class="v" id="r-kwh">0</span><span class="u">kWh of electricity</span><p>About 0.24 watt-hours per question.</p></div>
+        <div class="readout"><span class="v" id="r-water">0</span><span class="u">cups of water</span><p>About 5 drops (0.26 mL) per question.</p></div>
+        <div class="drops" id="drops" aria-hidden="true"></div>
+        <p class="fine">Figures are Google's estimate for the median Gemini Apps text prompt (0.24 Wh energy, 0.03 g CO₂e, 0.26 mL water). Creating images or video, or very long conversations, uses more. Other companies' tools will differ. One cup ≈ 237 mL; each mark above is one week of your questions.</p>
+      </div>
+    </div>
+
+    <div class="facts">
+      <div class="fact"><div class="v">33×</div><h4>Less energy per question</h4><p>The energy for a typical Gemini text prompt dropped by a factor of 33 over 12 months, while the answers got better.</p><span class="src">Google Environmental Report 2026, p. 17</span></div>
+      <div class="fact"><div class="v">+37%</div><h4>More electricity overall</h4><p>Even so, Google's total electricity demand grew 37% in a single year as AI took off. Small per question, big in total.</p><span class="src">Google Environmental Report 2026, p. 7</span></div>
+      <div class="fact"><div class="v">78%</div><h4>Water put back</h4><p>Google's water projects replenished about 7.7 billion gallons, roughly 78% of the fresh water it used. Its goal is 120%.</p><span class="src">Google Environmental Report 2026, p. 8</span></div>
+      <div class="fact"><div class="v">1.09</div><h4>Data center efficiency</h4><p>A score where 1.0 would be perfect. Google says its centers use 83% less overhead energy than the industry average.</p><span class="src">Google Environmental Report 2026, p. 5</span></div>
+      <div class="fact"><div class="v">+25%</div><h4>Supply chain emissions</h4><p>Building all the new chips and machines raised emissions from Google's suppliers by 25% in 2025.</p><span class="src">Google Environmental Report 2026, p. 7</span></div>
+      <div class="fact"><div class="v">41M</div><h4>Tons of CO₂ avoided by users</h4><p>Tools like smart thermostats and fuel-saving map routes helped people cut an estimated 41 million tons of emissions.</p><span class="src">Google Environmental Report 2026, p. 8</span></div>
+    </div>
+
+    <div class="balance">
+      <div>
+        <h3>Reading this with a fair eye</h3>
+        <ul>
+          <li>These are Google's own numbers about its own products. They're detailed and useful, but it's a company report, not an independent audit.</li>
+          <li>Both things are true: each question is tiny, and the total is growing fast because billions of people are asking.</li>
+          <li>The report itself says reaching its climate goals is “getting harder.” That candor is worth noticing.</li>
+          <li>Closer to home, Google notes data centers in the Carolinas and work with local partners on energy costs and home weatherization.</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Mindful habits that add up</h3>
+        <ul>
+          <li>Ask clear, complete questions. Fewer do-overs means less energy.</li>
+          <li>Use AI where it truly helps, not out of habit for things a quick search or a neighbor could answer.</li>
+          <li>Go easy on making AI pictures and videos just for fun. They use much more energy than text.</li>
+          <li>Keep your devices longer. Making new gadgets is a big part of tech's footprint.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 7. STORY BOOTH ================= -->
+<section class="chapter" id="stories">
+  <div class="wrap">
+    <div class="chap-head">
+      <div class="chap-num"><svg aria-hidden="true" style="color:var(--pine)"><use href="#i-ring"/></svg><span>Chapter 7<br>Story booth</span></div>
+      <div>
+        <h2>Tell us about your AI encounters</h2>
+        <p class="lede">The helpful, the funny, the frustrating, the “wait, is this real?” Record a short story in your own voice. Your recordings are kept right here on this device. Nothing is uploaded anywhere.</p>
+        <button class="listen" type="button"><svg aria-hidden="true"><use href="#i-speaker"/></svg><span>Listen to this chapter</span></button>
+      </div>
+    </div>
+
+    <div class="booth">
+      <div class="recorder band">
+        <div style="display:flex;justify-content:space-between;align-items:baseline;gap:1rem;flex-wrap:wrap">
+          <p class="eyebrow">Something to talk about</p>
+          <button class="btn ghost small" type="button" id="new-prompt">Different question</button>
+        </div>
+        <p class="prompt-card" id="prompt-card"></p>
+        <div class="rec-row">
+          <button class="recbtn" type="button" id="rec-btn" aria-pressed="false" aria-label="Start recording"><span></span></button>
+          <div class="rec-status">
+            <b id="rec-label">Tap the red button to start</b>
+            <span class="timer" id="rec-timer">0:00</span>
+          </div>
+        </div>
+        <canvas class="wave" id="wave" aria-hidden="true"></canvas>
+        <div class="err" id="rec-err" hidden></div>
+
+        <form class="save-form" id="save-form" hidden>
+          <audio id="preview" controls></audio>
+          <label for="s-title">Give it a title
+            <input type="text" id="s-title" placeholder="e.g. When it sounded sure and was wrong" required>
+          </label>
+          <div class="row2">
+            <label for="s-name">Your first name (optional)
+              <input type="text" id="s-name" placeholder="Optional">
+            </label>
+            <label for="s-kind">What kind of story?
+              <select id="s-kind">
+                <option>Helpful</option><option>Funny</option><option>Worrying</option><option>Learning moment</option><option>Family</option>
+              </select>
+            </label>
+          </div>
+          <label for="s-note">A few words to go with it (optional)
+            <textarea id="s-note" placeholder="Anything you'd like to add in writing"></textarea>
+          </label>
+          <div style="display:flex;gap:.75rem;flex-wrap:wrap">
+            <button class="btn" type="submit">Save my story</button>
+            <button class="btn ghost" type="button" id="discard">Discard and re-record</button>
+          </div>
+        </form>
+
+        <p class="notice"><svg aria-hidden="true"><use href="#i-lock"/></svg><span>Your browser will ask permission to use the microphone. Stories are saved only in this browser on this device. To share one with family or the community, use “Save a copy” and send the file however you like.</span></p>
+      </div>
+
+      <div class="shelf" aria-live="polite">
+        <div class="shelf-head"><h3>Your story shelf</h3><span id="shelf-count"></span></div>
+        <div id="shelf"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 8. KEEP LEARNING ================= -->
+<section class="chapter" id="learning">
+  <div class="wrap">
+    <div class="chap-head">
+      <div class="chap-num"><svg aria-hidden="true" style="color:var(--pine)"><use href="#i-ring"/></svg><span>Chapter 8<br>Keep learning</span></div>
+      <div>
+        <h2>A gentle four-week path</h2>
+        <p class="lede">Fifteen minutes a few times a week is plenty. Tick things off as you go; this page remembers your progress on this device. Better yet, do it with a friend from down the hall.</p>
+        <button class="listen" type="button"><svg aria-hidden="true"><use href="#i-speaker"/></svg><span>Listen to this chapter</span></button>
+      </div>
+    </div>
+
+    <div class="progress"><div class="bar"><i id="bar"></i></div><span id="bar-label">0 of 12 done</span></div>
+    <ol class="path" id="path"></ol>
+
+    <div class="download band" id="download">
+      <div>
+        <p class="eyebrow">Take it with you</p>
+        <h3 id="dl-title">Download your own copy</h3>
+        <p id="dl-text">Save this whole guide as a single file on your computer or tablet. It opens in your web browser, no internet needed, and the story booth works there too.</p>
+        <ol id="dl-steps">
+          <li>Click the button to save the file.</li>
+          <li>Find it in your Downloads folder.</li>
+          <li>Double-click it. It opens like a web page.</li>
+        </ol>
+      </div>
+      <div class="file">
+        <code>Aldersgate-AI-Guide-App.html</code>
+        <a class="btn" id="dl-btn" href="Aldersgate-AI-Guide-App.html" download><svg aria-hidden="true"><use href="#i-down"/></svg>Download the app</a>
+        <span style="font-size:.9rem;color:var(--band-soft)">One file, about 100 KB. Works on Mac, Windows, iPad and Android browsers.</span>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <p><b style="color:var(--ink)">Living Well with AI</b> is a community learning guide prepared for residents, families and staff of Givens Aldersgate, 3800 Shamrock Dr., Charlotte, NC 28215.</p>
+      <p>This guide offers general information, not medical, legal or financial advice. AI tools change quickly; check each app's own settings and policies.</p>
+    </div>
+    <div>
+      <p>Sustainability figures: Google, <i>Environmental Report 2026</i> (covering 2025 performance).</p>
+      <p>Body text is set in Atkinson Hyperlegible, a typeface designed by the Braille Institute for readers with low vision.</p>
+    </div>
+  </div>
+</footer>
+
+<div class="toast" id="toast" role="status"></div>
+
+<script>
+(function(){
+  "use strict";
+  var $ = function(s, r){ return (r||document).querySelector(s); };
+  var $$ = function(s, r){ return Array.prototype.slice.call((r||document).querySelectorAll(s)); };
+  var root = document.documentElement;
+  var store = {
+    get: function(k, d){ try{ var v = localStorage.getItem("lwai:"+k); return v === null ? d : JSON.parse(v); }catch(e){ return d; } },
+    set: function(k, v){ try{ localStorage.setItem("lwai:"+k, JSON.stringify(v)); }catch(e){} }
+  };
+  function esc(s){ return String(s).replace(/[&<>"']/g, function(c){ return {"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[c]; }); }
+  var toastT;
+  function toast(msg){ var t = $("#toast"); t.textContent = msg; t.classList.add("show"); clearTimeout(toastT); toastT = setTimeout(function(){ t.classList.remove("show"); }, 2400); }
+  function copyText(text){
+    var done = function(){ toast("Copied. Paste it into your AI app."); };
+    if (navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(text).then(done, function(){ fallback(); });
+    } else fallback();
+    function fallback(){
+      var ta = document.createElement("textarea"); ta.value = text; ta.style.position="fixed"; ta.style.opacity="0"; document.body.appendChild(ta); ta.select();
+      try{ document.execCommand("copy"); done(); }catch(e){ toast("Select the text and copy it by hand."); }
+      document.body.removeChild(ta);
+    }
+  }
+
+  /* ---------- Reading settings ---------- */
+  var sizes = ["s","m","l"], sizeNames = {s:"Standard text", m:"Large text", l:"Extra large text"};
+  root.dataset.size = store.get("size","m");
+  $("#size-btn").addEventListener("click", function(){
+    var i = (sizes.indexOf(root.dataset.size)+1) % sizes.length; root.dataset.size = sizes[i]; store.set("size", sizes[i]); toast(sizeNames[sizes[i]]);
+  });
+  var contrast = store.get("contrast", false);
+  function applyContrast(){ if (contrast) root.dataset.contrast = "high"; else delete root.dataset.contrast; $("#contrast-btn").setAttribute("aria-pressed", String(contrast)); }
+  applyContrast();
+  $("#contrast-btn").addEventListener("click", function(){ contrast = !contrast; store.set("contrast", contrast); applyContrast(); drawRings(true); toast(contrast ? "High contrast on" : "High contrast off"); });
+  var savedTheme = store.get("theme", null);
+  if (savedTheme) root.dataset.theme = savedTheme;
+  function isDark(){ return root.dataset.theme ? root.dataset.theme === "dark" : matchMedia("(prefers-color-scheme: dark)").matches; }
+  $("#theme-btn").addEventListener("click", function(){ var next = isDark() ? "light" : "dark"; root.dataset.theme = next; store.set("theme", next); drawRings(true); toast(next === "dark" ? "Dark mode" : "Light mode"); });
+  try{ matchMedia("(prefers-color-scheme: dark)").addEventListener("change", function(){ drawRings(true); }); }catch(e){}
+
+  /* ---------- Hero tree rings ---------- */
+  var canvas = $("#rings"), ctx = canvas.getContext("2d"), ringStart = null;
+  var reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  function seeded(n){ var x = Math.sin(n*12.9898)*43758.5453; return x - Math.floor(x); }
+  function drawRings(instant){
+    var r = canvas.getBoundingClientRect(); if (!r.width) return;
+    var dpr = window.devicePixelRatio || 1; canvas.width = r.width*dpr; canvas.height = r.height*dpr; ctx.setTransform(dpr,0,0,dpr,0,0);
+    var cs = getComputedStyle(root), ink = cs.getPropertyValue("--band-ink").trim(), gold = cs.getPropertyValue("--marigold").trim(), soft = cs.getPropertyValue("--band-soft").trim();
+    var W = r.width, H = r.height, cx = W*0.47, cy = H*0.5, maxR = Math.min(W,H)*0.46, N = 17;
+    function frame(t){
+      ctx.clearRect(0,0,W,H);
+      var shown = instant || reduce ? N : Math.min(N, t/90);
+      for (var i=0;i<N;i++){
+        var p = Math.max(0, Math.min(1, shown - i)); if (p<=0) break;
+        var base = maxR * Math.pow((i+1)/N, 0.92);
+        ctx.beginPath();
+        for (var a=0;a<=Math.PI*2*p+0.001;a+=0.035){
+          var wob = 1 + 0.035*Math.sin(a*3 + i*0.7) + 0.02*Math.sin(a*7 + seeded(i)*6) + 0.012*Math.sin(a*13+i);
+          var rr = base*wob*(1 + 0.05*Math.cos(a - 0.6)*(i/N));
+          var x = cx + rr*Math.cos(a), y = cy + rr*Math.sin(a)*0.96;
+          if (a===0) ctx.moveTo(x,y); else ctx.lineTo(x,y);
+        }
+        var heart = i === N-5;
+        ctx.strokeStyle = heart ? gold : (i%4===3 ? ink : soft);
+        ctx.globalAlpha = heart ? 1 : (i%4===3 ? .85 : .4);
+        ctx.lineWidth = heart ? 3 : (i%4===3 ? 1.8 : 1);
+        ctx.stroke();
+      }
+      ctx.globalAlpha = 1;
+      ctx.fillStyle = gold; ctx.beginPath(); ctx.arc(cx, cy, 4, 0, Math.PI*2); ctx.fill();
+      // a single crack line, like a real cross-section
+      ctx.strokeStyle = soft; ctx.globalAlpha = .35; ctx.lineWidth = 1; ctx.beginPath(); ctx.moveTo(cx+maxR*0.12, cy-maxR*0.05); ctx.lineTo(cx+maxR*0.55, cy-maxR*0.22); ctx.stroke(); ctx.globalAlpha = 1;
+    }
+    if (instant || reduce){ frame(0); return; }
+    ringStart = null;
+    (function loop(ts){ if (ringStart===null) ringStart = ts; var t = ts - ringStart; frame(t); if (t/90 < N+1) requestAnimationFrame(loop); })(performance.now());
+  }
+  // draw a full static frame first so the page is complete at rest, then animate
+  drawRings(true); setTimeout(function(){ drawRings(false); }, 150);
+  var rz; window.addEventListener("resize", function(){ clearTimeout(rz); rz = setTimeout(function(){ drawRings(true); }, 150); });
+
+  /* ---------- Nav highlight ---------- */
+  var links = $$(".nav a");
+  if ("IntersectionObserver" in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){ if (e.isIntersecting){ links.forEach(function(l){ l.setAttribute("aria-current", String(l.getAttribute("href") === "#"+e.target.id)); }); } });
+    }, {rootMargin:"-45% 0px -50% 0px"});
+    $$("section.chapter").forEach(function(s){ io.observe(s); });
+  }
+
+  /* ---------- Read aloud ---------- */
+  var speaking = null;
+  $$(".listen").forEach(function(btn){
+    btn.addEventListener("click", function(){
+      if (!("speechSynthesis" in window)){ toast("Read-aloud isn't available in this browser."); return; }
+      var wasMe = speaking === btn;
+      speechSynthesis.cancel(); $$(".listen").forEach(function(b){ b.setAttribute("aria-pressed","false"); b.querySelector("span").textContent = "Listen to this chapter"; });
+      speaking = null;
+      if (wasMe) return;
+      var sec = btn.closest("section");
+      var parts = [];
+      $$("h2, h3, h4, p, li, dt, dd, blockquote, .term .word", sec).forEach(function(el){
+        if (el.closest("button.listen, .quiz .opts, [hidden], .shelf, .recorder, .builder")) return;
+        if (el.closest("li") && el.tagName !== "LI") return;
+        var t = el.innerText.trim(); if (t) parts.push(t.replace(/\s+/g," "));
+      });
+      var u = new SpeechSynthesisUtterance(parts.join(". ").replace(/\.\./g,"."));
+      u.rate = 0.92;
+      u.onend = u.onerror = function(){ btn.setAttribute("aria-pressed","false"); btn.querySelector("span").textContent = "Listen to this chapter"; if (speaking===btn) speaking = null; };
+      speechSynthesis.speak(u); speaking = btn;
+      btn.setAttribute("aria-pressed","true"); btn.querySelector("span").textContent = "Stop reading";
+    });
+  });
+
+  /* ---------- Glossary ---------- */
+  var TERMS = [
+    ["Artificial intelligence (AI)","Computer programs that do things we used to think only people could do, like understand speech, recognize faces, or write a paragraph."],
+    ["Chatbot","An AI you talk to by typing or speaking, and it answers back in sentences. ChatGPT, Gemini and Claude are chatbots."],
+    ["Prompt","Simply what you say or type to the AI. Your question or request. Better prompts get better answers."],
+    ["Large language model","The engine inside a chatbot. A program trained on huge amounts of text so it can predict and produce language."],
+    ["Hallucination","When AI states something false with total confidence, like a made-up book title or a wrong phone number. Always double-check."],
+    ["Deepfake","A fake video, photo or voice recording made with AI to look or sound like a real person. Used in some scams."],
+    ["Algorithm","A set of step-by-step instructions a computer follows. It's what decides which posts or videos you see next."],
+    ["Training data","All the writing, pictures and recordings an AI learned from. Its knowledge, and its blind spots, come from here."]
+  ];
+  $("#glossary").innerHTML = TERMS.map(function(t,i){
+    return '<button class="term" type="button" aria-expanded="false" id="term-'+i+'"><span class="word">'+esc(t[0])+'</span><span class="def" hidden>'+esc(t[1])+'</span><span class="hint">Tap to see meaning</span></button>';
+  }).join("");
+  $$(".term").forEach(function(b){
+    b.addEventListener("click", function(){
+      var open = b.getAttribute("aria-expanded") !== "true";
+      b.setAttribute("aria-expanded", String(open)); b.querySelector(".def").hidden = !open;
+      b.querySelector(".hint").textContent = open ? "Tap to hide" : "Tap to see meaning";
+    });
+  });
+
+  /* ---------- Everyday uses: a workspace people fill in themselves ---------- */
+  var SPARKS = [
+    "What takes up more of your time than you'd like?",
+    "What have you been meaning to learn or understand better?",
+    "Is there a letter, form or document you'd like help making sense of?",
+    "Who would you like to write to, and what's held you back?",
+    "What project, hobby or idea would you like to take further?",
+    "What tech task makes you want to throw the device out the window?",
+    "What do you find yourself explaining to other people a lot?",
+    "What's something you'd like to plan, organize or decide?"
+  ];
+  var AREAS = ["Home & daily life","Health & wellbeing","Money & paperwork","People & relationships","Work, volunteering & service","Creativity & hobbies","Learning & curiosity","Getting around","Phones & computers"];
+  var ANGLES = [
+    {k:"explain", label:"Explain it to me", line:"Explain it in plain, everyday words, big picture first."},
+    {k:"plan", label:"Make a plan", line:"Help me make a simple step-by-step plan."},
+    {k:"draft", label:"Help me write it", line:"Help me write a first draft that I can edit to sound like me."},
+    {k:"ideas", label:"Give me ideas", line:"Give me a few different options, with a quick pro and con for each."},
+    {k:"teach", label:"Teach me how", line:"Teach me to do it myself, one step at a time, and check I'm following."},
+    {k:"ask", label:"What should I ask?", line:"Tell me what questions I should be asking, and who would be the right person to ask."}
+  ];
+  var CARE = {
+    "Health & wellbeing":"Good for preparing questions and understanding terms. Decisions belong with your doctor, nurse or pharmacist.",
+    "Money & paperwork":"Describe things in general terms and never share account numbers. Confirm anything important with your bank or a trusted advisor.",
+    "People & relationships":"If your request mentions other people, leave out their private details."
+  };
+  var CARE_DEFAULT = "Before relying on the answer, double-check any facts, names, dates or numbers. You're the editor.";
+  var PRIVATE = /\b\d{3}[- ]?\d{2}[- ]?\d{4}\b|\b\d{8,}\b|password|passcode|\bpin\b|social security|\bssn\b|account (number|no)|routing number|card number/i;
+  var wb = {area:"", angles:{plan:true}, spark:-1};
+
+  $("#sparks").innerHTML = SPARKS.map(function(q,i){ return '<button class="spark" type="button" aria-pressed="false" data-i="'+i+'">'+esc(q)+'</button>'; }).join("");
+  $("#sparks").addEventListener("click", function(e){
+    var b = e.target.closest(".spark"); if (!b) return;
+    var i = +b.dataset.i; wb.spark = wb.spark === i ? -1 : i;
+    $$("#sparks .spark").forEach(function(x){ x.setAttribute("aria-pressed", String(+x.dataset.i === wb.spark)); });
+    var t = $("#wb-thinking");
+    if (wb.spark < 0){ t.hidden = true; } else { t.textContent = "Thinking about: " + SPARKS[i]; t.hidden = false; $("#wb-task").focus(); }
+  });
+
+  function renderAreas(){
+    var list = AREAS.slice(); if (wb.area && list.indexOf(wb.area) < 0) list.push(wb.area);
+    $("#wb-areas").innerHTML = list.map(function(a){ return '<button class="chip" type="button" aria-pressed="'+(a===wb.area)+'" data-a="'+esc(a)+'">'+esc(a)+'</button>'; }).join("");
+  }
+  $("#wb-areas").addEventListener("click", function(e){ var b = e.target.closest(".chip"); if (!b) return; wb.area = wb.area === b.dataset.a ? "" : b.dataset.a; renderAreas(); buildUse(); });
+  function addOwnArea(){ var v = $("#wb-area-other").value.trim(); if (!v) { $("#wb-area-other").focus(); return; } wb.area = v.slice(0,40); $("#wb-area-other").value = ""; renderAreas(); buildUse(); toast("Area set: " + wb.area); }
+  $("#wb-area-add").addEventListener("click", addOwnArea);
+  $("#wb-area-other").addEventListener("keydown", function(e){ if (e.key === "Enter"){ e.preventDefault(); addOwnArea(); } });
+  renderAreas();
+
+  $("#wb-angles").innerHTML = ANGLES.map(function(a){ return '<button class="chip" type="button" data-k="'+a.k+'" aria-pressed="'+(!!wb.angles[a.k])+'">'+a.label+'</button>'; }).join("");
+  $("#wb-angles").addEventListener("click", function(e){ var b = e.target.closest(".chip"); if (!b) return; var k = b.dataset.k; wb.angles[k] = !wb.angles[k]; b.setAttribute("aria-pressed", String(wb.angles[k])); buildUse(); });
+
+  function composeUse(task, angles){
+    var t = task.trim().replace(/\s+/g," ").replace(/[.?!]+$/,"");
+    var s = "Here's something I'd like help with: " + t + ".";
+    ANGLES.forEach(function(a){ if (angles[a.k]) s += " " + a.line; });
+    return s + " If you need more details from me, ask before you answer.";
+  }
+  function buildUse(){
+    var task = $("#wb-task").value;
+    var has = task.trim().length > 0;
+    $("#wb-prompt").textContent = has ? composeUse(task, wb.angles) : "Your request will appear here as you type. Start with step 1.";
+    $("#wb-prompt").style.opacity = has ? 1 : .6;
+    var risky = PRIVATE.test(task);
+    $("#wb-priv").hidden = !risky;
+    $("#wb-care").innerHTML = risky ? "<b>Hold on:</b> remove the private detail in step 1 and you'll be able to copy or save this." : "<b>A good habit:</b> " + esc(CARE[wb.area] || CARE_DEFAULT);
+    $("#wb-save").disabled = !has || risky; $("#wb-copy").disabled = !has || risky;
+  }
+  $("#wb-task").addEventListener("input", buildUse);
+  $("#wb-copy").addEventListener("click", function(){ if ($("#wb-task").value.trim() && !PRIVATE.test($("#wb-task").value)) copyText(composeUse($("#wb-task").value, wb.angles)); });
+  buildUse();
+
+  var STATUSES = ["Want to try","Tried it","A keeper","Not for me"];
+  var myUses = store.get("uses", []);
+  if (!Array.isArray(myUses)) myUses = [];
+  var boardArea = "All";
+  function saveUses(){ store.set("uses", myUses); }
+  function useCard(u, example){
+    var date = new Date(u.created).toLocaleDateString(undefined, {month:"short", day:"numeric", year:"numeric"});
+    return '<article class="use'+(example?' example':'')+'" data-id="'+esc(u.id)+'">'+
+      '<span class="tag">'+(example ? 'Example · ' : '')+esc(u.area || "Everyday")+'</span>'+
+      '<p class="task">'+esc(u.task)+'</p>'+
+      '<div class="say"><span class="lbl">What to ask</span><q>'+esc(u.prompt)+'</q><br><button class="copy" type="button" data-copy><svg aria-hidden="true"><use href="#i-copy"/></svg>Copy</button></div>'+
+      '<div class="status" role="group" aria-label="How it went">'+STATUSES.map(function(st){ return '<button class="chip" type="button" data-st="'+esc(st)+'" aria-pressed="'+(u.status===st)+'"'+(example?' disabled':'')+'>'+esc(st)+'</button>'; }).join("")+'</div>'+
+      '<label class="note-lbl" for="note-'+esc(u.id)+'">How did it go?</label>'+
+      '<textarea id="note-'+esc(u.id)+'" data-note placeholder="What worked, what didn’t, what you’d try next"'+(example?' disabled':'')+'>'+esc(u.note||"")+'</textarea>'+
+      '<div class="row-end"><span class="date">'+(example ? 'Add your own above and this example disappears' : 'Added '+esc(date))+'</span>'+(example ? '' : '<button class="linkbtn" type="button" data-del>Remove</button>')+'</div>'+
+      '</article>';
+  }
+  function renderBoard(){
+    var areas = myUses.map(function(u){ return u.area || "Everyday"; }).filter(function(a,i,arr){ return arr.indexOf(a)===i; });
+    if (boardArea !== "All" && areas.indexOf(boardArea) < 0) boardArea = "All";
+    $("#board-filters").innerHTML = areas.length > 1 ? ["All"].concat(areas).map(function(a){ return '<button class="chip" type="button" data-a="'+esc(a)+'" aria-pressed="'+(a===boardArea)+'">'+esc(a)+'</button>'; }).join("") : "";
+    $("#board-filters").hidden = areas.length < 2;
+    var shown = myUses.filter(function(u){ return boardArea === "All" || (u.area || "Everyday") === boardArea; });
+    $("#board").innerHTML = shown.length ? shown.map(function(u){ return useCard(u, false); }).join("") : useCard({id:"example", task:"Make sense of a confusing letter about a change to my phone plan", area:"Money & paperwork", prompt:"Here's something I'd like help with: make sense of a confusing letter about a change to my phone plan. Explain it in plain, everyday words, big picture first. If you need more details from me, ask before you answer.", status:"Tried it", note:"It explained the jargon clearly. I called the company to confirm the new price.", created:Date.now()}, true);
+    $("#board-copy").disabled = !myUses.length;
+  }
+  $("#wb-save").addEventListener("click", function(){
+    var task = $("#wb-task").value.trim(); if (!task || PRIVATE.test(task)) return;
+    myUses.unshift({id:String(Date.now()), task:task, area:wb.area, prompt:composeUse(task, wb.angles), status:"Want to try", note:"", created:Date.now()});
+    saveUses(); boardArea = "All"; renderBoard();
+    $("#wb-task").value = ""; buildUse();
+    toast("Added to your list");
+  });
+  $("#board-filters").addEventListener("click", function(e){ var b = e.target.closest(".chip"); if (!b) return; boardArea = b.dataset.a; renderBoard(); });
+  function findUse(el){ var art = el.closest(".use"); if (!art || art.dataset.id === "example") return null; for (var i=0;i<myUses.length;i++) if (myUses[i].id === art.dataset.id) return {u:myUses[i], i:i, art:art}; return null; }
+  $("#board").addEventListener("click", function(e){
+    if (e.target.closest("[data-copy]")){ var art = e.target.closest(".use"); copyText(art.querySelector("q").textContent); return; }
+    var f = findUse(e.target); if (!f) return;
+    var st = e.target.closest("[data-st]");
+    if (st){ f.u.status = st.dataset.st; saveUses(); $$("[data-st]", f.art).forEach(function(c){ c.setAttribute("aria-pressed", String(c===st)); }); return; }
+    if (e.target.closest("[data-del]")){
+      if (f.art.querySelector(".confirm")) return;
+      var c = document.createElement("div"); c.className = "confirm";
+      c.innerHTML = '<span>Remove this from your list?</span><button class="btn warn small" type="button" data-yes>Remove</button><button class="btn ghost small" type="button" data-no>Keep it</button>';
+      f.art.appendChild(c); c.querySelector("[data-no]").focus(); return;
+    }
+    if (e.target.closest("[data-no]")){ e.target.closest(".confirm").remove(); return; }
+    if (e.target.closest("[data-yes]")){ myUses.splice(f.i, 1); saveUses(); renderBoard(); toast("Removed"); }
+  });
+  var noteT;
+  $("#board").addEventListener("input", function(e){ if (!e.target.matches("[data-note]")) return; var f = findUse(e.target); if (!f) return; f.u.note = e.target.value; clearTimeout(noteT); noteT = setTimeout(saveUses, 300); });
+  function listText(){
+    return "My everyday uses for AI\n\n" + myUses.map(function(u, i){
+      return (i+1) + ". " + u.task + (u.area ? " (" + u.area + ")" : "") + " | " + u.status + "\n   What to ask: " + u.prompt + (u.note ? "\n   How it went: " + u.note : "");
+    }).join("\n\n") + "\n";
+  }
+  $("#board-copy").addEventListener("click", function(){ if (myUses.length) copyText(listText()); });
+  $("#board-dl").addEventListener("click", function(e){
+    if (!myUses.length){ e.preventDefault(); toast("Add something to your list first"); return; }
+    var a = e.currentTarget; if (a.href.indexOf("blob:") === 0) URL.revokeObjectURL(a.href);
+    a.href = URL.createObjectURL(new Blob([listText()], {type:"text/plain"}));
+  });
+  renderBoard();
+
+  /* ---------- Prompt builder ---------- */
+  var TASKS = {write:"Help me write a short note about", explain:"Explain, in plain everyday words,", plan:"Help me plan", learn:"Teach me, step by step, about"};
+  var TASKL = {write:"Write something", explain:"Understand something", plan:"Plan something", learn:"Learn a skill"};
+  var STYLES = {short:"Keep it short, under 100 words.", simple:"Use simple words and no jargon.", steps:"Put it in numbered steps.", options:"Give me three different options to choose from."};
+  var STYLEL = {short:"Short", simple:"Simple words", steps:"Step by step", options:"Three options"};
+  var state = {task:"write", style:{short:true, simple:false, steps:false, options:true}};
+  $('[data-group="task"]').innerHTML = Object.keys(TASKL).map(function(k){ return '<button class="chip" type="button" data-k="'+k+'" aria-pressed="'+(state.task===k)+'">'+TASKL[k]+'</button>'; }).join("");
+  $('[data-group="style"]').innerHTML = Object.keys(STYLEL).map(function(k){ return '<button class="chip" type="button" data-k="'+k+'" aria-pressed="'+(!!state.style[k])+'">'+STYLEL[k]+'</button>'; }).join("");
+  $('[data-group="task"]').addEventListener("click", function(e){ var b = e.target.closest(".chip"); if(!b) return; state.task = b.dataset.k; $$('[data-group="task"] .chip').forEach(function(c){ c.setAttribute("aria-pressed", String(c===b)); }); buildPrompt(); });
+  $('[data-group="style"]').addEventListener("click", function(e){ var b = e.target.closest(".chip"); if(!b) return; var k = b.dataset.k; state.style[k] = !state.style[k]; b.setAttribute("aria-pressed", String(state.style[k])); buildPrompt(); });
+  function buildPrompt(){
+    var topic = $("#b-topic").value.trim() || "something on my mind";
+    var ctxt = $("#b-context").value.trim();
+    var s = TASKS[state.task] + " " + topic + ".";
+    if (ctxt) s += " A little about me: " + ctxt.replace(/\.$/,"") + ".";
+    Object.keys(STYLES).forEach(function(k){ if (state.style[k]) s += " " + STYLES[k]; });
+    $("#b-out").textContent = s;
+    return s;
+  }
+  $("#b-topic").addEventListener("input", buildPrompt); $("#b-context").addEventListener("input", buildPrompt);
+  $("#b-copy").addEventListener("click", function(){ copyText(buildPrompt()); });
+  buildPrompt();
+
+  /* ---------- Scam quiz ---------- */
+  var QUIZ = [
+    {q:"Your phone rings. It's the voice of a young relative, crying. They've been in an accident, need $2,000 in gift cards right away, and beg you not to tell anyone else in the family.", a:"scam", why:"A classic family-emergency scam, now with AI voice cloning. A few seconds of someone's voice from a social media video is enough to copy it. Hang up and call them, or another family member, on the number you already have. Ask for your family safe word."},
+    {q:"You download the official ChatGPT app from the App Store. It asks you to create an account with your email address.", a:"safe", why:"Normal. Use a strong password you don't use anywhere else. You don't need to give a phone number or payment to use the free version."},
+    {q:"A video on Facebook shows a famous TV doctor saying a new supplement “reverses memory loss in 7 days.” There's a link to order.", a:"scam", why:"Very likely a deepfake. Scammers use AI to put words in celebrities' mouths. Miracle cures plus urgency plus a buy button is a pattern worth walking away from."},
+    {q:"An email says your Medicare benefits will be cancelled today unless you click a link and confirm your Social Security number.", a:"scam", why:"Medicare won't email you demanding your SSN or threaten same-day cancellation. AI now writes these emails without the old spelling mistakes, so a polished message isn't proof of anything. Call 1-800-MEDICARE yourself if unsure."},
+    {q:"Your bank's own app, which you opened yourself, suggests turning on two-step verification so a code is texted to you when you sign in.", a:"safe", why:"Good idea. Two-step sign-in is one of the best protections there is. The key detail: you opened the app yourself. Never read that code out to someone who calls you."}
+  ];
+  var qi = 0, score = 0;
+  function renderQ(){
+    var item = QUIZ[qi];
+    $("#q-text").textContent = item.q;
+    $("#q-count").textContent = "Scenario " + (qi+1) + " of " + QUIZ.length;
+    $("#q-pips").innerHTML = QUIZ.map(function(_,i){ return '<i class="'+(i<=qi?"on":"")+'"></i>'; }).join("");
+    $("#q-verdict").hidden = true; $("#q-next").hidden = true;
+    $$("#q-opts button").forEach(function(b){ b.disabled = false; b.hidden = false; });
+  }
+  $("#q-opts").addEventListener("click", function(e){
+    var b = e.target.closest("button"); if (!b || b.disabled) return;
+    var item = QUIZ[qi], right = b.dataset.a === item.a; if (right) score++;
+    var v = $("#q-verdict"); v.className = "verdict " + (right ? "right" : "wrong");
+    v.innerHTML = "<b>" + (right ? "You've got good instincts." : "Easy to miss. Here's the tell.") + " " + (item.a==="scam" ? "This is a red flag." : "This one's fine.") + "</b>" + esc(item.why);
+    v.hidden = false;
+    $$("#q-opts button").forEach(function(x){ x.disabled = true; });
+    var n = $("#q-next"); n.hidden = false; n.textContent = qi < QUIZ.length-1 ? "Next one" : "See how you did";
+    n.focus();
+  });
+  var finished = false;
+  $("#q-next").addEventListener("click", function(){
+    if (finished){ finished = false; qi = 0; score = 0; renderQ(); return; }
+    if (qi < QUIZ.length-1){ qi++; renderQ(); return; }
+    $("#q-text").textContent = "You spotted " + score + " of " + QUIZ.length + ". " + (score>=4 ? "Sharp eyes. Share the safe-word idea with your family this week." : "Now you know the patterns: panic, secrecy, odd payment methods, and requests for numbers.");
+    $("#q-count").textContent = "Finished";
+    $("#q-verdict").hidden = true; $$("#q-opts button").forEach(function(b){ b.hidden = true; });
+    $("#q-next").textContent = "Try again"; finished = true;
+  });
+  renderQ();
+
+  /* ---------- Perspectives ---------- */
+  var PERSP = [
+    {who:"The curious learner", voice:"I've been learning new things my whole life. This is just the next one, and I'd rather understand it than fear it.", sees:"AI can be a patient, tireless tutor. It never sighs when you ask again.", ask:"Am I still thinking for myself, or just accepting whatever it says?"},
+    {who:"The healthy skeptic", voice:"Companies are selling this hard. I want to know who profits, what it gets wrong, and what they do with my information.", sees:"Real risks: errors stated confidently, privacy, and scams. Caution is wisdom, not stubbornness.", ask:"Am I missing out on something that could genuinely make life easier?"},
+    {who:"The caregiver & family", voice:"I want the people I love to be safe and independent. If a tool makes it easier to stay in touch or get help fast, that's peace of mind.", sees:"Reminders, alerts and easy video calls can support independence when people choose them.", ask:"Does this help them live their own life, or just make us feel better? Did we ask them?"},
+    {who:"The person of faith & values", voice:"Every tool reflects the values of whoever uses it. The question is whether this one helps us love our neighbors better.", sees:"Technology can serve dignity and connection when it's used with care.", ask:"Does it bring me closer to people and purpose, or pull me away into a screen?"},
+    {who:"The artist & writer", voice:"My paintings and poems came from my life. It feels odd that a machine learned from artists' work without asking.", sees:"Fair concerns about credit, consent and copyright. Human creativity matters.", ask:"Could I use it as a sketchbook for ideas while keeping the real work my own?"},
+    {who:"The retired professional", voice:"I spent forty years in my field. I can see this changing jobs the way computers did in the eighties. Some for better, some not.", sees:"Work and skills will shift. Experience and judgment become more valuable, not less.", ask:"How can I share what I know with the people now learning to work alongside AI?"}
+  ];
+  var pi = 0;
+  $("#ptabs").innerHTML = PERSP.map(function(p,i){ return '<button class="ptab" type="button" role="tab" id="ptab-'+i+'" aria-controls="ppanel" aria-selected="'+(i===pi)+'" tabindex="'+(i===pi?0:-1)+'"><span class="dot"></span><span class="who">'+esc(p.who)+'</span></button>'; }).join("");
+  function renderP(){
+    var p = PERSP[pi];
+    $("#ppanel").setAttribute("aria-labelledby","ptab-"+pi);
+    $("#ppanel").innerHTML = '<p class="eyebrow">'+esc(p.who)+'</p><p class="voice">'+esc(p.voice)+'</p><div class="cols"><div><h4>What they see clearly</h4><p>'+esc(p.sees)+'</p></div><div><h4>A fair question for them</h4><p>'+esc(p.ask)+'</p></div></div>';
+    $$(".ptab").forEach(function(t,i){ t.setAttribute("aria-selected", String(i===pi)); t.tabIndex = i===pi?0:-1; });
+  }
+  $("#ptabs").addEventListener("click", function(e){ var t = e.target.closest(".ptab"); if(!t) return; pi = +t.id.split("-")[1]; renderP(); });
+  $("#ptabs").addEventListener("keydown", function(e){
+    var d = {ArrowDown:1, ArrowRight:1, ArrowUp:-1, ArrowLeft:-1}[e.key]; if (!d) return; e.preventDefault();
+    pi = (pi + d + PERSP.length) % PERSP.length; renderP(); $("#ptab-"+pi).focus();
+  });
+  renderP();
+
+  /* ---------- Planet calculator ---------- */
+  function fmt(n, d){ return n.toLocaleString(undefined, {maximumFractionDigits:d||0, minimumFractionDigits:d||0}); }
+  function calc(){
+    var n = +$("#prompts").value; $("#p-out").textContent = n;
+    var yr = n*365;
+    $("#r-tv").textContent = fmt(yr*9/60);
+    $("#r-kwh").textContent = fmt(yr*0.24/1000, 1);
+    $("#r-water").textContent = fmt(yr*0.26/237, 1);
+    var weeks = 52, perWeekDrops = n*7*5;
+    $("#drops").innerHTML = new Array(weeks+1).join("<i></i>");
+    $("#drops").style.opacity = Math.min(1, .35 + perWeekDrops/1200);
+  }
+  $("#prompts").addEventListener("input", calc); calc();
+
+  /* ---------- Story booth ---------- */
+  var PROMPTS = [
+    "Tell us about the first time AI surprised you, for better or worse.",
+    "Has a voice assistant ever misunderstood you in a funny way?",
+    "Was there a moment AI helped you with something you'd been stuck on?",
+    "Have you ever wondered if a call, photo or video was fake? What happened?",
+    "What would you want the next generation to know about using AI wisely?",
+    "What's one thing you wish AI could do for you, and one thing you'd never let it do?"
+  ];
+  var pIdx = 0;
+  function showPrompt(){ $("#prompt-card").textContent = PROMPTS[pIdx]; }
+  $("#new-prompt").addEventListener("click", function(){ pIdx = (pIdx+1) % PROMPTS.length; showPrompt(); });
+  showPrompt();
+
+  var db = null;
+  function openDB(){
+    return new Promise(function(res, rej){
+      if (!("indexedDB" in window)) return rej(new Error("no idb"));
+      var req; try{ req = indexedDB.open("living-well-ai", 1); }catch(e){ return rej(e); }
+      req.onupgradeneeded = function(){ req.result.createObjectStore("stories", {keyPath:"id"}); };
+      req.onsuccess = function(){ res(req.result); };
+      req.onerror = function(){ rej(req.error); };
+    });
+  }
+  function tx(mode){ return db.transaction("stories", mode).objectStore("stories"); }
+  function allStories(){ return new Promise(function(res){ if(!db) return res([]); var r = tx("readonly").getAll(); r.onsuccess = function(){ res(r.result.sort(function(a,b){ return b.created - a.created; })); }; r.onerror = function(){ res([]); }; }); }
+  function putStory(s){ return new Promise(function(res, rej){ var r = tx("readwrite").put(s); r.onsuccess = res; r.onerror = function(){ rej(r.error); }; }); }
+  function delStory(id){ return new Promise(function(res){ var r = tx("readwrite").delete(id); r.onsuccess = r.onerror = res; }); }
+
+  var urls = [];
+  function fmtTime(s){ s = Math.round(s); return Math.floor(s/60) + ":" + String(s%60).padStart(2,"0"); }
+  function extFor(m){ return /mp4|m4a|aac/.test(m) ? "m4a" : /ogg/.test(m) ? "ogg" : "webm"; }
+  function slug(s){ return (s||"story").toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"").slice(0,40) || "story"; }
+  function renderShelf(){
+    allStories().then(function(list){
+      urls.forEach(function(u){ URL.revokeObjectURL(u); }); urls = [];
+      $("#shelf-count").textContent = list.length ? list.length + (list.length===1?" story":" stories") + " saved here" : "";
+      var html = list.map(function(s){
+        var u = URL.createObjectURL(s.blob); urls.push(u);
+        var date = new Date(s.created).toLocaleDateString(undefined, {month:"long", day:"numeric", year:"numeric"});
+        return '<article class="story" data-id="'+esc(s.id)+'"><div class="meta"><span class="kind">'+esc(s.kind)+'</span><span>'+esc(date)+(s.name ? ' · '+esc(s.name) : '')+' · '+fmtTime(s.duration||0)+'</span></div>'+
+          '<h4>'+esc(s.title)+'</h4>'+(s.note ? '<p>'+esc(s.note)+'</p>' : '')+
+          '<audio controls preload="metadata" src="'+u+'"></audio>'+
+          '<div class="acts"><a class="btn ghost small" href="'+u+'" download="'+slug(s.title)+'.'+extFor(s.mime)+'"><svg aria-hidden="true"><use href="#i-down"/></svg>Save a copy</a><button class="btn ghost small" type="button" data-del>Delete</button></div></article>';
+      }).join("");
+      var example = '<article class="story example"><div class="meta"><span class="kind">Example</span><span>What a saved story looks like</span></div><h4>When it sounded sure and was wrong</h4><p>“I asked it what time a museum opened on Sundays. It answered like it knew for certain. I checked the museum&#39;s own website, and it was wrong by two hours. Now I treat it like a helpful friend who sometimes misremembers.”</p></article>';
+      $("#shelf").innerHTML = html || ('<div class="empty">No stories saved yet. Record one on the left and it will appear here, ready to play back or save a copy.</div>' + example);
+    });
+  }
+  $("#shelf").addEventListener("click", function(e){
+    var art = e.target.closest(".story"); if (!art) return;
+    if (e.target.closest("[data-del]")){
+      var acts = art.querySelector(".acts");
+      if (art.querySelector(".confirm")) return;
+      var c = document.createElement("div"); c.className = "confirm";
+      c.innerHTML = '<span>Delete this story for good? It can\'t be undone.</span><button class="btn warn small" type="button" data-yes>Yes, delete</button><button class="btn ghost small" type="button" data-no>Keep it</button>';
+      acts.after(c); c.querySelector("[data-no]").focus();
+    }
+    if (e.target.closest("[data-no]")) e.target.closest(".confirm").remove();
+    if (e.target.closest("[data-yes]")) delStory(art.dataset.id).then(function(){ toast("Story deleted"); renderShelf(); });
+  });
+
+  var rec = null, chunks = [], stream = null, startT = 0, tickT = null, audioCtx = null, analyser = null, rafW = null, lastBlob = null, lastDur = 0, lastMime = "";
+  var wave = $("#wave"), wctx = wave.getContext("2d");
+  function sizeWave(){ var r = wave.getBoundingClientRect(); var d = window.devicePixelRatio||1; wave.width = r.width*d; wave.height = r.height*d; wctx.setTransform(d,0,0,d,0,0); idleWave(); }
+  function idleWave(){ var r = wave.getBoundingClientRect(); wctx.clearRect(0,0,r.width,r.height); wctx.strokeStyle = getComputedStyle(root).getPropertyValue("--band-soft"); wctx.globalAlpha=.5; wctx.lineWidth = 2; wctx.beginPath(); wctx.moveTo(10, r.height/2); wctx.lineTo(r.width-10, r.height/2); wctx.stroke(); wctx.globalAlpha=1; }
+  sizeWave(); window.addEventListener("resize", sizeWave);
+  function drawWave(){
+    var r = wave.getBoundingClientRect(), W = r.width, H = r.height;
+    var data = new Uint8Array(analyser.frequencyBinCount); analyser.getByteTimeDomainData(data);
+    wctx.clearRect(0,0,W,H);
+    var bars = Math.floor(W/7), gold = getComputedStyle(root).getPropertyValue("--marigold");
+    wctx.fillStyle = gold;
+    for (var i=0;i<bars;i++){
+      var v = Math.abs(data[Math.floor(i*data.length/bars)] - 128)/128;
+      var h = Math.max(3, v*H*1.8); h = Math.min(H-6, h);
+      wctx.fillRect(i*7+2, (H-h)/2, 4, h);
+    }
+    rafW = requestAnimationFrame(drawWave);
+  }
+  function showErr(msg){ var e = $("#rec-err"); e.textContent = msg; e.hidden = !msg; }
+  function pickMime(){
+    if (!window.MediaRecorder || !MediaRecorder.isTypeSupported) return "";
+    var c = ["audio/webm;codecs=opus","audio/mp4","audio/webm","audio/ogg;codecs=opus"];
+    for (var i=0;i<c.length;i++) if (MediaRecorder.isTypeSupported(c[i])) return c[i];
+    return "";
+  }
+  function startRec(){
+    showErr("");
+    if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia || !window.MediaRecorder){
+      showErr("This browser can't record audio. Try the latest Chrome, Edge or Safari. You can still type your story below once you've recorded elsewhere.");
+      return;
+    }
+    navigator.mediaDevices.getUserMedia({audio:true}).then(function(s){
+      stream = s; chunks = [];
+      var m = pickMime();
+      try{ rec = m ? new MediaRecorder(s, {mimeType:m}) : new MediaRecorder(s); }catch(e){ rec = new MediaRecorder(s); }
+      lastMime = rec.mimeType || m || "audio/webm";
+      rec.ondataavailable = function(e){ if (e.data && e.data.size) chunks.push(e.data); };
+      rec.onstop = function(){
+        lastBlob = new Blob(chunks, {type:lastMime});
+        lastDur = (Date.now()-startT)/1000;
+        stream.getTracks().forEach(function(t){ t.stop(); });
+        var pv = $("#preview"); if (pv.src) URL.revokeObjectURL(pv.src); pv.src = URL.createObjectURL(lastBlob);
+        $("#save-form").hidden = false; $("#s-title").focus();
+        $("#rec-label").textContent = "Listen back, then save it";
+      };
+      rec.start(250); startT = Date.now();
+      $("#rec-btn").setAttribute("aria-pressed","true"); $("#rec-btn").setAttribute("aria-label","Stop recording");
+      $("#rec-label").textContent = "Recording… tap again to stop";
+      $("#save-form").hidden = true;
+      tickT = setInterval(function(){ var s = (Date.now()-startT)/1000; $("#rec-timer").textContent = fmtTime(s); if (s >= 600) stopRec(); }, 250);
+      try{
+        audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        var src = audioCtx.createMediaStreamSource(s); analyser = audioCtx.createAnalyser(); analyser.fftSize = 1024; src.connect(analyser); drawWave();
+      }catch(e){}
+    }).catch(function(err){
+      var msg = err && err.name === "NotAllowedError"
+        ? "The microphone is blocked. Click the small lock or microphone icon in your browser's address bar, choose Allow, then try again."
+        : "We couldn't find a microphone. Check that one is plugged in or built in, then try again.";
+      showErr(msg);
+    });
+  }
+  function stopRec(){
+    if (rec && rec.state !== "inactive") rec.stop();
+    clearInterval(tickT); cancelAnimationFrame(rafW); idleWave();
+    if (audioCtx){ try{ audioCtx.close(); }catch(e){} audioCtx = null; }
+    $("#rec-btn").setAttribute("aria-pressed","false"); $("#rec-btn").setAttribute("aria-label","Start recording");
+  }
+  $("#rec-btn").addEventListener("click", function(){ if (rec && rec.state === "recording") stopRec(); else startRec(); });
+  $("#discard").addEventListener("click", function(){ lastBlob = null; $("#save-form").hidden = true; $("#save-form").reset(); $("#rec-timer").textContent = "0:00"; $("#rec-label").textContent = "Tap the red button to start"; });
+  $("#save-form").addEventListener("submit", function(e){
+    e.preventDefault();
+    if (!lastBlob){ return; }
+    if (!db){ showErr("This browser won't let the page save stories (private browsing can cause this). Use the player above and your browser's menu to keep the recording."); return; }
+    var s = {id: String(Date.now()), title: $("#s-title").value.trim() || "My AI story", name: $("#s-name").value.trim(), kind: $("#s-kind").value, note: $("#s-note").value.trim(), created: Date.now(), blob: lastBlob, mime: lastMime, duration: lastDur};
+    putStory(s).then(function(){
+      toast("Saved to your story shelf"); lastBlob = null; $("#save-form").reset(); $("#save-form").hidden = true; $("#rec-timer").textContent = "0:00"; $("#rec-label").textContent = "Tap the red button to record another"; renderShelf();
+    }).catch(function(){ showErr("Couldn't save. Your device may be low on storage."); });
+  });
+  openDB().then(function(d){ db = d; renderShelf(); }).catch(function(){ renderShelf(); });
+
+  /* ---------- Learning path ---------- */
+  var PATH = [
+    {wk:"Week 1", title:"Say hello", items:["Ask a voice assistant for tomorrow's weather","Install one chat assistant from the official app store","Ask it: “What can you help me with?”"]},
+    {wk:"Week 2", title:"Make it useful", items:["Add one of your own tasks in Everyday uses, then try it","Ask a follow-up: “Simpler, please”","Set your privacy settings (Chapter 4)"]},
+    {wk:"Week 3", title:"Think critically", items:["Catch it making a mistake, then check a trusted source","Pick a family safe word and share it","Talk through two of the Perspectives with a friend"]},
+    {wk:"Week 4", title:"Share and teach", items:["Record a story in the Story booth","Show a neighbor one thing you learned","Ask it to quiz you on something new"]}
+  ];
+  var done = store.get("path", {});
+  $("#path").innerHTML = PATH.map(function(w,wi){
+    return '<li class="week"><span class="wk">'+w.wk+'</span><h3>'+esc(w.title)+'</h3>'+w.items.map(function(it,ii){ var id = "p"+wi+"-"+ii; return '<label class="check" for="'+id+'"><input type="checkbox" id="'+id+'"'+(done[id]?" checked":"")+'><span>'+esc(it)+'</span></label>'; }).join("")+'</li>';
+  }).join("");
+  function prog(){ var all = $$("#path input"), n = all.filter(function(i){ return i.checked; }).length; $("#bar").style.width = (n/all.length*100)+"%"; $("#bar-label").textContent = n + " of " + all.length + " done" + (n===all.length ? ". Wonderful!" : ""); }
+  $("#path").addEventListener("change", function(e){ done[e.target.id] = e.target.checked; store.set("path", done); prog(); });
+  prog();
+
+  /* ---------- Offline app mode ---------- */
+  if (window.GUIDE_MODE === "app"){
+    $("#dl-title").textContent = "You're using your own copy";
+    $("#dl-text").textContent = "This file lives on your device and works without the internet. Your stories and progress are saved in this browser. Keep the file somewhere easy to find, like your Desktop or Documents folder.";
+    $("#dl-steps").innerHTML = "<li>Open it any time by double-clicking the file.</li><li>To try the AI tools themselves, you'll still need the internet.</li><li>Want to share it? Email or copy the file to a friend.</li>";
+    $("#dl-btn").hidden = true;
+  }
+})();
+</script>
+</body>
+</html>
