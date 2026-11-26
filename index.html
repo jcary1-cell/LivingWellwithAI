@@ -5,7 +5,20 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Living Well with AI</title>
 <meta name="description" content="A plain-language guide to using AI safely, wisely and with curiosity, made for the Givens Aldersgate community in Charlotte, NC.">
-<script>window.GUIDE_MODE = "web";</script>
+<script>window.GUIDE_MODE = "web";
+/* Once the guide is online, put its web address here (e.g. "https://example.org/ai-guide/")
+   so the downloaded copy can show it to people setting up their phones. */
+window.GUIDE_URL = "";</script>
+<!--pwa-->
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png">
+<meta name="theme-color" content="#173A31">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Living Well">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<!--/pwa-->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:ital,wght@0,400;0,600;0,700;1,400&family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Atkinson+Hyperlegible+Mono:wght@400;600&display=swap">
@@ -441,6 +454,52 @@ input[type=range]{width:100%; margin-top:1rem; accent-color:var(--pine); height:
 .download .file code{font-family:var(--f-mono); font-size:.9rem; color:var(--marigold); word-break:break-all}
 @media (max-width: 820px){ .download{grid-template-columns:1fr; padding:1.75rem} }
 
+/* ---------- Home screen ---------- */
+.homescreen{margin-top:5rem; display:grid; gap:2.5rem}
+.hs-head{display:grid; grid-template-columns:minmax(0,1.2fr) minmax(0,1fr); gap:2rem; align-items:end}
+.hs-head h3{font-size:var(--step-3); font-weight:800; margin:.6rem 0 1rem}
+.hs-head .lede{max-width:46ch}
+.urlcard{background:var(--surface); border:1px solid var(--line); border-radius:var(--radius); padding:1.5rem; display:grid; grid-template-columns:minmax(0,1fr) auto; gap:1rem 1.25rem; align-items:center}
+.urlcard .lbl{grid-column:1/-1; font-weight:700}
+.urlcard code{font-family:var(--f-mono); font-size:1rem; color:var(--pine); overflow-wrap:anywhere; display:block; margin-bottom:.6rem}
+.urlcard .qr{background:#FFFFFF; padding:.4rem; border-radius:10px; width:8.5rem; line-height:0}
+.urlcard .qr svg{width:100%; height:auto; display:block}
+.urlcard .qr-cap{font-size:.85rem; color:var(--ink-soft); display:block; margin-top:.4rem; text-align:center; line-height:1.3}
+.urlcard .none{color:var(--ink-soft); font-size:1rem}
+.hs-main{display:grid; grid-template-columns:minmax(0,1fr) minmax(0,17rem); gap:3rem; align-items:start}
+.os-tabs{display:flex; flex-wrap:wrap; gap:.5rem; margin-bottom:1.75rem}
+.os-tab{appearance:none; border:1.5px solid var(--line); background:var(--surface); color:var(--ink); border-radius:999px; padding:.75rem 1.2rem; font:700 1.05rem/1 var(--f-body); cursor:pointer; min-height:3rem; display:inline-flex; gap:.5rem; align-items:center}
+.os-tab:hover{border-color:var(--ink)}
+.os-tab[aria-selected="true"]{background:var(--ink); color:var(--paper); border-color:var(--ink)}
+.os-tab .here{font:600 .7rem/1 var(--f-mono); letter-spacing:.06em; text-transform:uppercase; background:var(--marigold); color:#1B1405; padding:.3rem .45rem; border-radius:999px}
+.hs-steps{list-style:none; margin:0; padding:0; display:grid; gap:1.1rem; counter-reset:st}
+.hs-steps > li{counter-increment:st; display:grid; grid-template-columns:2.6rem minmax(0,1fr); gap:1rem; align-items:start; font-size:1.15rem; line-height:1.5}
+.hs-steps > li::before{content:counter(st); display:grid; place-items:center; width:2.6rem; height:2.6rem; border-radius:50%; background:var(--marigold); color:#1B1405; font:700 1.1rem var(--f-mono)}
+.hs-steps small{display:block; font-size:.98rem; color:var(--ink-soft); margin-top:.25rem}
+.hs-sub{font-family:var(--f-display); font-size:1.3rem; margin:1.75rem 0 1rem}
+.hs-sub:first-child{margin-top:0}
+.ico{display:inline-flex; align-items:center; justify-content:center; width:1.9em; height:1.9em; vertical-align:-.55em; border:1.5px solid var(--line); background:var(--surface); border-radius:8px; color:var(--pine); margin:0 .15em}
+.ico svg{width:1.15em; height:1.15em}
+.tapname{font-weight:700; background:color-mix(in srgb, var(--marigold) 22%, transparent); padding:.05em .35em; border-radius:6px; white-space:nowrap}
+.hs-alt{margin-top:1.5rem; font-size:1rem; color:var(--ink-soft); border-top:1px solid var(--line); padding-top:1rem; max-width:none}
+.phone{width:100%; max-width:15rem; aspect-ratio:9/18.5; border:9px solid var(--ink); border-radius:2.4rem; background:linear-gradient(160deg, var(--sky), color-mix(in srgb, var(--pine) 35%, var(--sky))); padding:2.6rem .95rem 1rem; display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); align-content:start; gap:1rem .6rem; position:relative; justify-self:center; box-shadow:var(--shadow)}
+.phone::before{content:""; position:absolute; top:.6rem; left:50%; transform:translateX(-50%); width:4.2rem; height:1.1rem; border-radius:999px; background:var(--ink)}
+.phone .app{aspect-ratio:1; border-radius:22%; background:color-mix(in srgb, var(--surface) 55%, transparent)}
+.phone .ours{display:grid; justify-items:center; gap:.3rem; grid-column:2; min-width:0; width:100%}
+.phone .ours{grid-template-columns:minmax(0,1fr)}
+.phone .ours > span{width:max-content; justify-self:center}
+.phone .ours svg{width:100%; max-width:100%; min-width:0; height:auto; justify-self:stretch; aspect-ratio:1; border-radius:22%; display:block; box-shadow:0 0 0 3px var(--marigold); animation:glow 2.4s ease-in-out infinite}
+.phone .ours span{font-size:.62rem; font-weight:700; color:var(--ink); white-space:nowrap}
+@keyframes glow{50%{box-shadow:0 0 0 6px color-mix(in srgb, var(--marigold) 45%, transparent)}}
+.phone-cap{text-align:center; font-size:.9rem; color:var(--ink-soft); margin-top:.9rem; max-width:none}
+.hs-notes{display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:1.25rem; padding:0; margin:0}
+.hs-notes li{list-style:none; border-top:3px solid var(--ink); padding-top:1rem}
+.hs-notes b{display:block; font-family:var(--f-display); font-size:1.15rem; margin-bottom:.35rem}
+.hs-notes span{font-size:1rem; color:var(--ink-soft)}
+.standalone-note{background:var(--ok); color:var(--ok-ink); border-radius:var(--radius); padding:1.1rem 1.3rem; font-weight:600; max-width:none}
+@media (max-width: 900px){ .hs-head, .hs-main{grid-template-columns:1fr} .hs-notes{grid-template-columns:1fr} .phone{max-width:12rem} }
+@media (max-width: 520px){ .urlcard{grid-template-columns:1fr} .urlcard .qr{display:none} }
+
 footer{padding-block:3rem 4rem; border-top:1px solid var(--line); font-size:.95rem; color:var(--ink-soft)}
 footer .wrap{display:grid; grid-template-columns:minmax(0,1.4fr) minmax(0,1fr); gap:2rem}
 footer p{margin-bottom:.6rem}
@@ -462,6 +521,12 @@ footer p{margin-bottom:.6rem}
     <symbol id="i-copy" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2"/></g></symbol>
     <symbol id="i-no" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M5.6 5.6l12.8 12.8"/></g></symbol>
     <symbol id="i-lock" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></g></symbol>
+    <symbol id="i-share" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="M8 7l4-4 4 4"/><path d="M6 11H5a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-8a1 1 0 0 0-1-1h-1"/></g></symbol>
+    <symbol id="i-dots-v" viewBox="0 0 24 24"><g fill="currentColor"><circle cx="12" cy="5" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="12" cy="19" r="2"/></g></symbol>
+    <symbol id="i-dots-h" viewBox="0 0 24 24"><g fill="currentColor"><circle cx="5" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="19" cy="12" r="2"/></g></symbol>
+    <symbol id="i-plus-sq" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M12 8v8M8 12h8"/></g></symbol>
+    <symbol id="i-install" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M12 7v6M9 10.5l3 3 3-3M8 21h8"/></g></symbol>
+    <symbol id="i-mark" viewBox="0 0 96 96"><rect width="96" height="96" fill="#173A31"/><g fill="none" stroke-width="2.2"><circle cx="48" cy="48" r="38" stroke="#EEF3EC"/><circle cx="48" cy="48" r="31" stroke="#E7A93A" stroke-width="3.4"/><circle cx="48" cy="48" r="24" stroke="#B9CCC3" opacity=".6"/><circle cx="48" cy="48" r="17" stroke="#EEF3EC"/><circle cx="48" cy="48" r="10" stroke="#B9CCC3" opacity=".6"/></g><circle cx="48" cy="48" r="4.5" fill="#E7A93A"/></symbol>
     <symbol id="i-down" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11"/><path d="M7 10l5 5 5-5"/><path d="M5 20h14"/></g></symbol>
   </defs>
 </svg>
@@ -519,7 +584,7 @@ footer p{margin-bottom:.6rem}
       <div><b>8 short chapters</b>Read in any order</div>
       <div><b>Tap “Listen”</b>Any chapter can be read aloud</div>
       <div><b>Bigger text</b>Use the “AA” button up top</div>
-      <div><b>Works offline</b>Download your own copy</div>
+      <div><b>On your home screen</b><a href="#homescreen" style="color:inherit">Add it like an app</a></div>
     </div>
   </div>
 </section>
@@ -976,6 +1041,90 @@ footer p{margin-bottom:.6rem}
         <a class="btn" id="dl-btn" href="Aldersgate-AI-Guide-App.html" download><svg aria-hidden="true"><use href="#i-down"/></svg>Download the app</a>
         <span style="font-size:.9rem;color:var(--band-soft)">One file, about 100 KB. Works on Mac, Windows, iPad and Android browsers.</span>
       </div>
+    </div>
+
+    <div class="homescreen" id="homescreen">
+      <div class="hs-head">
+        <div>
+          <p class="eyebrow">Phones and tablets</p>
+          <h3>Put it on your home screen</h3>
+          <p class="lede">Get a Living Well icon on your phone, right next to your other apps. It opens full-screen with one tap, and once it's added it keeps working without the internet.</p>
+        </div>
+        <div class="urlcard" id="urlcard">
+          <span class="lbl">First, open the guide on your phone</span>
+          <div>
+            <code id="hs-url"></code>
+            <button class="btn ghost small" type="button" id="hs-copy"><svg aria-hidden="true"><use href="#i-copy"/></svg>Copy address</button>
+          </div>
+          <div id="qr-wrap" hidden><div class="qr" id="qr"></div><span class="qr-cap">Point your phone's camera here</span></div>
+        </div>
+      </div>
+
+      <p class="standalone-note" id="hs-standalone" hidden>You're already using the home-screen version. Nicely done.</p>
+
+      <div class="hs-main">
+        <div>
+          <div class="os-tabs" role="tablist" aria-label="Choose your device">
+            <button class="os-tab" type="button" role="tab" id="os-ios" aria-controls="os-panel-ios" aria-selected="true">iPhone &amp; iPad</button>
+            <button class="os-tab" type="button" role="tab" id="os-android" aria-controls="os-panel-android" aria-selected="false" tabindex="-1">Android</button>
+            <button class="os-tab" type="button" role="tab" id="os-computer" aria-controls="os-panel-computer" aria-selected="false" tabindex="-1">Computer</button>
+          </div>
+
+          <div role="tabpanel" id="os-panel-ios" aria-labelledby="os-ios">
+            <ol class="hs-steps">
+              <li><div>Open the guide's address in <span class="tapname">Safari</span>, the app with the blue compass.<small>Copy the address above, or scan the square code with your camera.</small></div></li>
+              <li><div>Tap the Share button <span class="ico"><svg aria-hidden="true"><use href="#i-share"/></svg></span>, a square with an arrow pointing up.<small>On iPhone it's at the bottom of the screen. On iPad it's at the top. Don't see it? Tap <span class="ico"><svg aria-hidden="true"><use href="#i-dots-h"/></svg></span> first, then Share.</small></div></li>
+              <li><div>Scroll down the list and tap <span class="tapname">Add to Home Screen</span> <span class="ico"><svg aria-hidden="true"><use href="#i-plus-sq"/></svg></span><small>If you see a switch called “Open as Web App,” leave it on.</small></div></li>
+              <li><div>Check that the name says <span class="tapname">Living Well</span>, then tap <span class="tapname">Add</span>.</div></li>
+              <li><div>Find the ring icon on your home screen. Tap it any time to open the guide.</div></li>
+            </ol>
+          </div>
+
+          <div role="tabpanel" id="os-panel-android" aria-labelledby="os-android" hidden>
+            <ol class="hs-steps">
+              <li><div>Open the guide's address in <span class="tapname">Chrome</span>.<small>Copy the address above, or scan the square code with your camera.</small></div></li>
+              <li><div>Tap the menu button <span class="ico"><svg aria-hidden="true"><use href="#i-dots-v"/></svg></span>, three dots in the top right corner.</div></li>
+              <li><div>Tap <span class="tapname">Add to Home screen</span>.<small>On some phones this says “Install app” instead.</small></div></li>
+              <li><div>Tap <span class="tapname">Install</span> or <span class="tapname">Add</span>. Your phone may ask you to confirm once more.</div></li>
+              <li><div>Find the ring icon on your home screen or in your list of apps.</div></li>
+            </ol>
+            <p class="hs-alt">Using Samsung Internet instead? Tap the menu button at the bottom (three lines), then <span class="tapname">Add page to</span>, then <span class="tapname">Home screen</span>.</p>
+          </div>
+
+          <div role="tabpanel" id="os-panel-computer" aria-labelledby="os-computer" hidden>
+            <p class="hs-sub">Mac</p>
+            <ol class="hs-steps">
+              <li><div>Download the app file using the button above.</div></li>
+              <li><div>Open <span class="tapname">Finder</span> and click <span class="tapname">Downloads</span>.</div></li>
+              <li><div>Drag <span class="tapname">Aldersgate-AI-Guide-App</span> onto your Desktop, or onto the right end of the Dock next to the Trash.</div></li>
+              <li><div>Double-click it whenever you'd like to open the guide.</div></li>
+            </ol>
+            <p class="hs-sub">Windows</p>
+            <ol class="hs-steps">
+              <li><div>Download the app file using the button above.</div></li>
+              <li><div>Open <span class="tapname">File Explorer</span> and click <span class="tapname">Downloads</span>.</div></li>
+              <li><div>Right-click the file, choose <span class="tapname">Show more options</span>, then <span class="tapname">Send to</span> and <span class="tapname">Desktop (create shortcut)</span>.</div></li>
+              <li><div>Double-click the new shortcut on your desktop to open the guide.</div></li>
+            </ol>
+            <p class="hs-alt">Using Chrome or Edge on the website? Look for the install icon <span class="ico"><svg aria-hidden="true"><use href="#i-install"/></svg></span> at the right end of the address bar, then click <span class="tapname">Install</span>.</p>
+          </div>
+        </div>
+
+        <figure style="margin:0">
+          <div class="phone" aria-hidden="true">
+            <i class="app"></i><span class="ours"><svg><use href="#i-mark"/></svg><span>Living Well</span></span><i class="app"></i><i class="app"></i>
+            <i class="app"></i><i class="app"></i><i class="app"></i><i class="app"></i>
+            <i class="app"></i><i class="app"></i><i class="app"></i>
+          </div>
+          <figcaption class="phone-cap">What you'll see: the ring icon, ready to tap.</figcaption>
+        </figure>
+      </div>
+
+      <ul class="hs-notes">
+        <li><b>Open it once online</b><span>The first time you open the icon, be connected to Wi-Fi so the guide can save itself for offline use.</span></li>
+        <li><b>Your notes stay put</b><span>Stories and lists you save in the home-screen version stay on that phone. On iPhone they're kept separate from Safari.</span></li>
+        <li><b>Changed your mind?</b><span>Press and hold the icon, then choose Remove App (iPhone) or Uninstall (Android). That's all.</span></li>
+      </ul>
     </div>
   </div>
 </section>
@@ -1524,12 +1673,56 @@ footer p{margin-bottom:.6rem}
   $("#path").addEventListener("change", function(e){ done[e.target.id] = e.target.checked; store.set("path", done); prog(); });
   prog();
 
+  /* ---------- Home screen instructions ---------- */
+  var ua = navigator.userAgent || "";
+  var isIOS = /iPhone|iPad|iPod/.test(ua) || (/Macintosh/.test(ua) && navigator.maxTouchPoints > 1);
+  var isAndroid = /Android/.test(ua);
+  var isPhone = isIOS || isAndroid;
+  var osTabs = $$(".os-tab");
+  function pickOS(id, focus){
+    osTabs.forEach(function(t){ var on = t.id === id; t.setAttribute("aria-selected", String(on)); t.tabIndex = on ? 0 : -1; $("#" + t.getAttribute("aria-controls")).hidden = !on; if (on && focus) t.focus(); });
+  }
+  var mine = isIOS ? "os-ios" : isAndroid ? "os-android" : "os-computer";
+  var mineTab = $("#" + mine); var tag = document.createElement("span"); tag.className = "here"; tag.textContent = "Yours"; mineTab.appendChild(tag);
+  pickOS(isPhone ? mine : "os-ios");
+  $(".os-tabs").addEventListener("click", function(e){ var t = e.target.closest(".os-tab"); if (t) pickOS(t.id); });
+  $(".os-tabs").addEventListener("keydown", function(e){
+    var d = {ArrowRight:1, ArrowLeft:-1}[e.key]; if (!d) return; e.preventDefault();
+    var i = osTabs.findIndex(function(t){ return t.getAttribute("aria-selected") === "true"; });
+    pickOS(osTabs[(i + d + osTabs.length) % osTabs.length].id, true);
+  });
+
+  var guideUrl = window.GUIDE_MODE === "app" ? (window.GUIDE_URL || "") : (location.origin + location.pathname).replace(/index\.html$/, "");
+  if (!/^https?:/.test(guideUrl)) guideUrl = window.GUIDE_URL || "";
+  if (guideUrl){
+    $("#hs-url").textContent = guideUrl;
+    $("#hs-copy").addEventListener("click", function(){ copyText(guideUrl); });
+    if (!isPhone){
+      var qs = document.createElement("script");
+      qs.src = "https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js";
+      qs.onload = function(){
+        try{ var q = window.qrcode(0, "M"); q.addData(guideUrl); q.make(); $("#qr").innerHTML = q.createSvgTag({cellSize:4, margin:2, scalable:true}); $("#qr-wrap").hidden = false; }catch(e){}
+      };
+      document.head.appendChild(qs);
+    }
+  } else {
+    $("#hs-url").outerHTML = '<p class="none">Ask whoever shared this guide with you for its web address, then open that on your phone.</p>';
+    $("#hs-copy").hidden = true;
+  }
+  var standalone = (window.matchMedia && matchMedia("(display-mode: standalone)").matches) || navigator.standalone === true;
+  if (standalone){ $("#hs-standalone").hidden = false; $("#urlcard").hidden = true; }
+
+  if ("serviceWorker" in navigator && window.GUIDE_MODE === "web" && /^https:|^http:\/\/localhost/.test(location.href)){
+    window.addEventListener("load", function(){ navigator.serviceWorker.register("sw.js").catch(function(){}); });
+  }
+
   /* ---------- Offline app mode ---------- */
   if (window.GUIDE_MODE === "app"){
     $("#dl-title").textContent = "You're using your own copy";
     $("#dl-text").textContent = "This file lives on your device and works without the internet. Your stories and progress are saved in this browser. Keep the file somewhere easy to find, like your Desktop or Documents folder.";
     $("#dl-steps").innerHTML = "<li>Open it any time by double-clicking the file.</li><li>To try the AI tools themselves, you'll still need the internet.</li><li>Want to share it? Email or copy the file to a friend.</li>";
     $("#dl-btn").hidden = true;
+    $("#dl-steps").insertAdjacentHTML("beforeend", "<li>On a phone? Follow the home screen steps below instead.</li>");
   }
 })();
 </script>
